@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
   "dependencies": {
-    "astro": "^1.2.1"
+    "@astrojs/vue": "^1.0.1",
+    "astro": "^1.2.1",
+    "vue": "^3.2.30"
   }
 }
