@@ -25,5 +25,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: historical-stats # TODO: replace with Deno Deploy project name
-          entrypoint: index.html
+          entrypoint: server/entry.mjs
           root: dist
