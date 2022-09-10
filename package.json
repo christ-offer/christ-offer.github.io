@@ -6,11 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
-    "preview": "deno run --allow-net --allow-read --allow-env ./dist/server/entry.mjs"
+    "build": "astro build"
   },
   "dependencies": {
-    "@astrojs/deno": "^1.0.1",
     "@astrojs/vue": "^1.0.1",
     "astro": "^1.2.1",
     "vue": "^3.2.30"
