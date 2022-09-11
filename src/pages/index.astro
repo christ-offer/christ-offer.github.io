@@ -9,9 +9,10 @@ import Post from '../components/Post.astro'
 	<main>
 		{posts.map(post => (
 		<Post class="post-container">
-			<a href={post.url}><h2>{post.frontmatter.title}</h2></a>
-			<h4>{post.frontmatter.description}</h4>
-			<p class="author">{post.frontmatter.author}</p>
+			<h2>{post.frontmatter.title}</h2>
+			<p>{post.frontmatter.exerpt}</p>
+			<p class="author">Posted by {post.frontmatter.author}</p>
+			<a href={post.url}>Read more</a>
 		</Post>
 		))}
 	</main>
@@ -22,10 +23,12 @@ import Post from '../components/Post.astro'
 		margin:  auto;
 		padding:  1rem;
 		margin-top: 5rem;
+		display: grid;
 	}
 	a {
 		text-decoration:  none;
 		color: black;
+		text-align: right;
 	}
 	a:hover {
 		text-decoration:  underline;
@@ -34,9 +37,14 @@ import Post from '../components/Post.astro'
 		border-bottom: 1px solid black;
 		font-size: 2rem;
 		text-align: center;
+		padding-bottom: 1rem;
 	}
 	.post-container {
 		padding: 1rem;
 		border-radius: 2px;
+		display: grid;
+	}
+	p {
+		padding:  1rem;
 	}
 </style>

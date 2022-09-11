@@ -2,6 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 title: Midjourney, GPT3 and Codex
 description: "Midjourney, 'AI' and Codex / Copilot. It's potential and some philosophical musings "
+exerpt: "Unless you have been living under a rock for the past year, you have no doubt come across the term “text-to-image generator”. Well, thats pretty much what it is. It is a giant language and image model that takes natural language prompts, and returns images. Hopefully matching the prompt."
 author: Chris
 date: "09-11-2022"
 ---
