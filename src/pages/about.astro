@@ -6,23 +6,30 @@ import SiteLayout from '../layouts/SiteLayout.astro'
 <SiteLayout>
 	<article>
       <main>
-      	<img src="/img/fluffmonster.png" alt="a bat that with flowers and colors around it" width="200" style="margin:auto;">
-      	<p>About me you know</p>
-      	<p>About the site</p>
-      	<p>About projects</p>
-      	
-      	<h2>some random facts</h2>
-      	<ul>
-      		<li>thing</li>
-      		<li>about</li>
-      		<li>another thing</li>
-      	</ul>
-      	<h2>Projects</h2>
-      	<ul>
-	      	<li>project 1</li>
-    	  	<li>project 2</li>
-      		<li>project 3</li>
-      	</ul>
+      	<section class="intro">
+      		<img src="/img/fluffmonster.png" alt="a bat that with flowers and colors around it" width="200">
+      		<p>So you somehow found your way here. That's one more than the zero I expected</p>
+      		<p>So I guess I should probably say some words, I dunno, about either the site or myself. Perhaps both?</p>
+      	</section>
+      	<section class="tech">
+      		<h2>The site is built using</h2>
+      		<ul>
+      			<li>Astro Js</li>
+      			<li>Some Vue</li>
+      			<li>Some JS</li>
+      			<li>Chart.js for the Graphs</li>
+      		</ul>
+      		<h2>Projects</h2>
+      		<ul>
+	      		<li>Well, this website I guess</li>
+    	  		<li>The Historic Temperature/Weather graphs</li>
+      			<li>??</li>
+      		</ul>
+      	</section>
+      	<section class="about-me">
+      		<h2>Dayjob</h2>
+      		<p>I ply my trade at a small Dev Studio called <a href="https://seam.es"> Seam</a> (We neither work with plywood nor seams). Rather we do some inhouse work and take on clients. If you need something done. Hit us up.</p>
+      	</section>
       </main>
    </article>
 </SiteLayout>
@@ -54,9 +61,21 @@ import SiteLayout from '../layouts/SiteLayout.astro'
    }
    article ul {
    	list-style: square;
-   	padding-bottom:  1rem;
+   	margin-block: 1rem;
+   	margin-left: 3rem;
    }
    article p {
-   	padding-bottom: 1rem;
+   	margin-block: 0.5rem;
+   }
+   .intro {
+   	display: grid;
+   }
+   .intro img {
+   	margin-bottom: 2rem;
+   	margin-inline: auto;
+   }
+   a {
+   	text-decoration:  none;
+   	color: purple;
    }
 </style>
