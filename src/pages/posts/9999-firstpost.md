@@ -1,7 +1,17 @@
 ---
-layout: ../../layouts/SiteLayout.astro
-title: Blog Post
-description: My first blog post!
+layout: ../../layouts/BlogPostLayout.astro
+title: My first post!
+description: Let me tell you a little story about how a blue guy from a blue world something
 author: Chris
 ---
-This is a post written in Markdown.
+Welcome to my first blog post!
+
+
+```js
+var home = "Homborsund"
+```
+
+
+<div style="text-align: center">
+<img src="/img/foxinbox.png" alt="fox in a box" width="400" />
+</div>

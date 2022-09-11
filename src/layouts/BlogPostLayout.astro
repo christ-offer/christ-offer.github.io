@@ -1,20 +1,30 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro'
 const {frontmatter} = Astro.props;
-console.log(post.frontmatter)
 ---
 <SiteLayout>
+   <article>
    <!-- ... -->
-   <header>
-      <h1>{frontmatter.title}</h1>
-   </header>
-  <h2>{frontmatter.description}</h2>
-  <slot />
-  <p>{frontmatter.author}</p>
+      <header>
+         <h1>{frontmatter.title}</h1>
+      </header>
+      <h3>{frontmatter.description}</h3>
+      <slot />
+      <p>{frontmatter.author}</p>
+   </article>
    <!-- ... -->
 </SiteLayout>
 <style>
+   article {
+    max-width: 50%;
+    margin: auto;  
+    background-color:  hsl(220, 50%, 95%);
+    margin-top: 10rem;
+   }
    h1 {
-      color: orange;
+      font-size:  32px
+   }
+   img {
+      max-width:  25%;
    }
 </style>

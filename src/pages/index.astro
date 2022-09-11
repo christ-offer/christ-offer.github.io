@@ -7,7 +7,6 @@ import Post from '../components/Post.astro'
 ---
 <SiteLayout>
 	<main>
-		<img src="/img/furry.png" alt="">
 		{posts.map(post => (
 		<Post class="post-container">
 			<a href={post.url}><h2>{post.frontmatter.title}</h2></a>
@@ -21,8 +20,34 @@ import Post from '../components/Post.astro'
 </SiteLayout>
 <style>
 	main {
-		max-width:  80%;
+		max-width:  60%;
 		margin:  auto;
+		background-color: hsl(220, 50%, 95%);
+		padding:  1rem;
+		margin-top: 10rem;
 	}
-
+	.landing {
+		margin: 1rem;
+		padding-bottom:  0rem;
+		overflow:  hidden;
+		display: grid;
+		place-items: center;
+	}
+	img {
+		max-width: 400px;
+		position: relative;
+		bottom:  -1rem;
+		margin: auto;
+		
+	}
+	a {
+		text-decoration:  none;
+		color: black;
+	}
+	a:hover {
+		text-decoration:  underline;
+	}
+	h2 {
+		border-bottom: 1px solid black;
+	}
 </style>

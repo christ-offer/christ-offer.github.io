@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/projects/on-this-day">On This Day</a>
-    </nav>
+    <header>
+      <div class="landing">
+      <img src="/img/foxinbox.png" alt="">
+    </div>
+      <nav>
+        <ul>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/projects/on-this-day">Projects</a>
+        </ul>
+      </nav>
+    </header>
     <article>
       <slot /> <!-- your content is injected here -->
     </article>
@@ -64,11 +72,42 @@
     border-spacing: 0;
   }
 
+
+  ul {
+    margin-bottom: -0.5rem;
+  }
+  a {
+    text-decoration:  none;
+    color: black;
+    font-size: 24px;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    padding: 0.5rem;
+    background-color:  hsl(220, 50%, 95%);
+
+  }
   body {
-    background-color: rgba(210, 160, 97, 1);
+    background-color: #fafafa;
+  }
+  header {
+    background-color:  hsl(220, 50%, 95%);
+  }
+  .landing {
+    overflow:  hidden;
+    display: grid;
+    place-items: center;
+  }
+  img {
+    max-height: 10rem;
+    position: relative;
+    margin: auto;
+    top: 0;
   }
   nav {
-    background-color:  rgba(206, 80, 35, 1);
-    height:  10vh;
+    display: grid;
+    padding-top: 2rem;
+    place-items: end center;
+    margin:  auto;
+    width:  40%;
   }
 </style>

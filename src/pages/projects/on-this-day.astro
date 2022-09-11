@@ -4,11 +4,15 @@ import SiteLayout from '../../layouts/SiteLayout.astro'
 import Graph from '../../components/Graph.vue'
 ---
 <SiteLayout>
-	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-	<Graph client:load />
+	<main>
+		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+		<Graph client:load />
+	</main>
 </SiteLayout>
 <style>
 	main {
-		max-width:  80%;
+		max-width: 95%;
+		margin: auto;
+		margin-top: 5rem;
 	}
 </style>

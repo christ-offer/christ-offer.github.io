@@ -16,13 +16,12 @@ const { title, description, author } = Astro.props as props
 </div>
 <style>
 	.post-container {
-		border:  1px solid black;
 		padding:  1rem;
 		margin:  1rem;
-		background-color:  rgba(230, 222, 189, 1);
 	}
 	.post-container h2 {
-		font-size:  2rem;
+		font-size:  3rem;
+
 	}
 	.post-container h4 {
 		font-size:  1.3rem;
@@ -33,4 +32,10 @@ const { title, description, author } = Astro.props as props
 	.post-container .author {
 		font-size:  0.8rem;
 	}
+   .astro-code {
+      background-color:  white !important;
+   }
+   pre {
+      background-color:  white !important;
+   }
 </style>
