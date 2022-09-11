@@ -7,7 +7,7 @@ import Post from '../components/Post.astro'
 ---
 <SiteLayout>
 	<main>
-		<img src="/assets/furry.png" alt="">
+		<img src="/img/furry.png" alt="">
 		{posts.map(post => (
 		<Post class="post-container">
 			<a href={post.url}><h2>{post.frontmatter.title}</h2></a>
