@@ -1,0 +1,20 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro'
+const {frontmatter} = Astro.props;
+console.log(post.frontmatter)
+---
+<SiteLayout>
+   <!-- ... -->
+   <header>
+      <h1>{frontmatter.title}</h1>
+   </header>
+  <h2>{frontmatter.description}</h2>
+  <slot />
+  <p>{frontmatter.author}</p>
+   <!-- ... -->
+</SiteLayout>
+<style>
+   h1 {
+      color: orange;
+   }
+</style>

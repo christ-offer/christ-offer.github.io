@@ -1,17 +1,28 @@
 ---
 // Server ran / terminal ran code
-import Graph from '../components/Graph.vue'
+import SiteLayout from '../layouts/SiteLayout.astro'
+const posts = await Astro.glob('./posts/*.md');
+import Post from '../components/Post.astro'
+
 ---
-<html>
-	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-  <body>
-  	<header>
-  		<h1>Welcome Friend</h1>
-  	</header>
-  	<main>
-  		<Graph client:load />
-  	</main>
-  </body>
-</html>
+<SiteLayout>
+	<main>
+		<img src="/assets/furry.png" alt="">
+		{posts.map(post => (
+		<Post class="post-container">
+			<a href={post.url}><h2>{post.frontmatter.title}</h2></a>
+			<h4>{post.frontmatter.description}</h4>
+			<p>{post.frontmatter.generated}</p>
+			<p class="author">{post.frontmatter.author}</p>
+			<p>{post.frontmatter.url}</p>
+		</Post>
+		))}
+	</main>
+</SiteLayout>
 <style>
+	main {
+		max-width:  80%;
+		margin:  auto;
+	}
+
 </style>

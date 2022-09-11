@@ -1,0 +1,14 @@
+---
+// Server ran / terminal ran code
+import SiteLayout from '../../layouts/SiteLayout.astro'
+import Graph from '../../components/Graph.vue'
+---
+<SiteLayout>
+	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+	<Graph client:load />
+</SiteLayout>
+<style>
+	main {
+		max-width:  80%;
+	}
+</style>
