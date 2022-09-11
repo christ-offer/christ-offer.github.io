@@ -4,17 +4,65 @@ import SiteLayout from '../layouts/SiteLayout.astro'
 
 ---
 <SiteLayout>
-	<main>
-		<article>
-			<h1>Hello welcome to my site</h1>
-		</article>
-	</main>
+	<article>
+      <header>
+         <h1>About:</h1>
+      </header>
+      <div>
+      <p>About me you know</p>
+      <p>About the site</p>
+      <p>About projects</p>
+      <h2>some random facts</h2>
+      <ul>
+      	<li>thing</li>
+      	<li>about</li>
+      	<li>another thing</li>
+      </ul>
+      <h2>Projects</h2>
+      <ul>
+      	<li>project 1</li>
+      	<li>project 2</li>
+      	<li>project 3</li>
+      </ul>
+      </div>
+   </article>
 </SiteLayout>
 <style>
-	main {
-		max-width:  80%;
-		margin:  auto;
-		margin-top: 5rem;
-	}
-
+   article {
+      max-width: 50%;
+      margin: auto;  
+      background-color:  hsl(220, 50%, 95%);
+      margin-top: 5rem;
+      padding: 1rem;
+      border-radius: 2px;
+      display: grid;
+   }
+   article div {
+      padding: 1rem;
+   }
+   article header {
+      border-bottom:  1px solid black;
+   }
+   article header h1 {
+      font-size:  32px;
+      line-height: 1em;
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      
+   }
+   article h3 {
+      padding-bottom: 1rem;
+      max-width: 60%;
+      place-self: center;
+      text-align: center;
+   }
+   article ul {
+   	list-style: square;
+   	padding-bottom:  1rem;
+   }
+   article p {
+   	padding-bottom: 1rem;
+   }
 </style>

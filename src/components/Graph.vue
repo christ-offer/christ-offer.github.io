@@ -3,6 +3,7 @@ let cityname;
 let chart;
 
 
+
 function getCoordinates(cityname) {
     const url = `https://nominatim.openstreetmap.org/search?q=${cityname}&format=json`;
     fetch(url)
@@ -251,7 +252,6 @@ function getTemperature(lat, lon) {
     grid-template-areas:
         "input button";
     grid-gap: 10px;
-    width:50%;
 }
 
 .input input {
@@ -273,14 +273,5 @@ function getTemperature(lat, lon) {
 
 .chart {
     padding: 10px;
-}
-
-#myChart {
-    width: 100%;
-    height: 100%;
-}
-#myChart {
-    width: 100%;
-    height: 100%;
 }
 </style>

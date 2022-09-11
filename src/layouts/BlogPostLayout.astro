@@ -7,24 +7,50 @@ const {frontmatter} = Astro.props;
    <!-- ... -->
       <header>
          <h1>{frontmatter.title}</h1>
+         <span>This post was written by {frontmatter.author} on the {frontmatter.date}</span>
       </header>
       <h3>{frontmatter.description}</h3>
+      <div>
       <slot />
-      <p>{frontmatter.author}</p>
+      </div>
+      
    </article>
    <!-- ... -->
 </SiteLayout>
 <style>
    article {
-    max-width: 50%;
-    margin: auto;  
-    background-color:  hsl(220, 50%, 95%);
-    margin-top: 10rem;
+      max-width: 50%;
+      margin: auto;  
+      background-color:  hsl(220, 50%, 95%);
+      margin-top: 5rem;
+      padding: 1rem;
+      border-radius: 2px;
+      display: grid;
    }
-   h1 {
-      font-size:  32px
+   article div {
+      padding: 1rem;
    }
-   img {
-      max-width:  25%;
+   article header {
+      border-bottom:  1px solid black;
+      display: grid;
+   }
+   article header h1 {
+      font-size:  32px;
+      line-height: 1em;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      padding-bottom: 0.5rem;
+      
+   }
+   article header span {
+      place-self: center;
+   }
+   article h3 {
+      padding-top: 2rem;
+      padding-bottom: 1rem;
+      max-width: 60%;
+      place-self: center;
+      text-align: center;
    }
 </style>

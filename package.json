@@ -12,6 +12,7 @@
     "@astrojs/vue": "^1.0.1",
     "astro": "^1.2.1",
     "astro-imagetools": "^0.6.10",
+    "chart.js": "^3.9.1",
     "vue": "^3.2.30"
   }
 }

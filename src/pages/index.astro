@@ -11,34 +11,17 @@ import Post from '../components/Post.astro'
 		<Post class="post-container">
 			<a href={post.url}><h2>{post.frontmatter.title}</h2></a>
 			<h4>{post.frontmatter.description}</h4>
-			<p>{post.frontmatter.generated}</p>
 			<p class="author">{post.frontmatter.author}</p>
-			<p>{post.frontmatter.url}</p>
 		</Post>
 		))}
 	</main>
 </SiteLayout>
 <style>
 	main {
-		max-width:  60%;
+		max-width:  40%;
 		margin:  auto;
-		background-color: hsl(220, 50%, 95%);
 		padding:  1rem;
-		margin-top: 10rem;
-	}
-	.landing {
-		margin: 1rem;
-		padding-bottom:  0rem;
-		overflow:  hidden;
-		display: grid;
-		place-items: center;
-	}
-	img {
-		max-width: 400px;
-		position: relative;
-		bottom:  -1rem;
-		margin: auto;
-		
+		margin-top: 5rem;
 	}
 	a {
 		text-decoration:  none;
@@ -49,5 +32,11 @@ import Post from '../components/Post.astro'
 	}
 	h2 {
 		border-bottom: 1px solid black;
+		font-size: 2rem;
+		text-align: center;
+	}
+	.post-container {
+		padding: 1rem;
+		border-radius: 2px;
 	}
 </style>

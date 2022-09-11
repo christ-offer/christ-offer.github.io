@@ -1,10 +1,10 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
-import { astroImageTools } from "astro-imagetools";
+import Chart from 'chart.js/auto';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), astroImageTools],
+  integrations: [vue()],
   site: 'https://christ-offer.github.io',
   markdown: {
     shikiConfig: {

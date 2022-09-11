@@ -8,34 +8,18 @@ export interface Post {
 const { title, description, author } = Astro.props as props
 ---
 
-<div class="post-container">
-	<h2>{title}</h2>
-	<h4>{description}</h4>
+<div>
+
 	<slot />
-	<p>{author}</p>
+
 </div>
 <style>
-	.post-container {
-		padding:  1rem;
-		margin:  1rem;
+	div {
+		background-color:  hsl(220, 50%, 95%);
+		padding: 1rem;
+		border-radius: 2px;
 	}
-	.post-container h2 {
-		font-size:  3rem;
-
+	h1 {
+		font-size: 60px;
 	}
-	.post-container h4 {
-		font-size:  1.3rem;
-	}
-	.post-container p {
-		font-size:  1rem;
-	}
-	.post-container .author {
-		font-size:  0.8rem;
-	}
-   .astro-code {
-      background-color:  white !important;
-   }
-   pre {
-      background-color:  white !important;
-   }
 </style>
