@@ -29,13 +29,15 @@ import SiteLayout from '../layouts/SiteLayout.astro'
 </SiteLayout>
 <style>
    article {
-      max-width: 50%;
-      margin: auto;  
+   	  width: 100%;
+   	  max-width: 70%;
       background-color:  hsl(220, 50%, 95%);
       margin-top: 5rem;
       padding: 1rem;
       border-radius: 2px;
-      display: grid;
+     display: grid;
+     grid-column-start:  2;
+     place-self: start center;
    }
    article div {
       padding: 1rem;

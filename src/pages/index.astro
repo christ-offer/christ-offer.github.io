@@ -2,28 +2,31 @@
 // Server ran / terminal ran code
 import SiteLayout from '../layouts/SiteLayout.astro'
 const posts = await Astro.glob('./posts/*.md');
-import Post from '../components/Post.astro'
 
 ---
 <SiteLayout>
 	<main>
+	<section class="blog">
 		{posts.map(post => (
-		<Post class="post-container">
+		<article class="post-container">
 			<h2>{post.frontmatter.title}</h2>
 			<p>{post.frontmatter.exerpt}</p>
 			<p class="author">Posted by {post.frontmatter.author}</p>
 			<a href={post.url}>Read more</a>
-		</Post>
+		</article>
 		))}
+	</section>
 	</main>
 </SiteLayout>
 <style>
 	main {
-		max-width:  40%;
-		margin:  auto;
+		max-width: 60%;
 		padding:  1rem;
+		margin: auto;
 		margin-top: 5rem;
 		display: grid;
+		grid-column-start: 2;
+		
 	}
 	a {
 		text-decoration:  none;
@@ -39,11 +42,15 @@ import Post from '../components/Post.astro'
 		text-align: center;
 		padding-bottom: 1rem;
 	}
+	.blog {
+
+	}
 	.post-container {
 		padding: 1rem;
 		border-radius: 2px;
 		display: grid;
 		background-color:  hsl(220, 50%, 95%);
+		margin-bottom: 2rem;
 	}
 	p {
 		padding:  1rem;

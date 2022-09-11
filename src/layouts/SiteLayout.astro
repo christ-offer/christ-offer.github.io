@@ -18,21 +18,22 @@
         </ul>
       </nav>
     </header>
-    <article class="content-container">
+    <section class="content-container">
       <slot /> <!-- your content is injected here -->
-    </article>
+    </section>
   </body>
 </html>
 <style>
   body {
-    background-image: url('/img/wallpaper.png');
+    background-image: url('https://mj-gallery.com/1d08ab69-84d4-471a-a554-3c4aaa1f4b1d/grid_0.png');
     background-repeat: no-repeat;
-    background-size: 200% auto;
+    background-size: 140% auto;
     font-size: 100%;
+    max-height: 100vh;
     font-size: clamp(0.8rem, 0.7222222222222223rem + 0.3888888888888889vw, 1.5rem);
   }
   header {
-    background-color:  hsl(220, 50%, 90%, 0.9);
+    background-color:  hsl(220, 20%, 20%, 0.6);
   }
   header ul {
     margin-bottom: -0.5rem;
@@ -50,22 +51,23 @@
   header .landing {
     overflow:  hidden;
     display: grid;
-    place-items: center;
+    place-items: center start;
   }
   header .landing img {
-    max-height: 10rem;
+    max-height: 5rem;
     position: relative;
-    margin: auto;
     top: 0;
   }
   header nav {
     display: grid;
-    padding-top: 2rem;
     place-items: end center;
     margin:  auto;
     width:  40%;
   }
   .content-container {
     margin-bottom: 5rem;
+    display: grid;
+    grid-template-columns: minmax(1rem, 1fr) minmax(0, 1200px) minmax(1rem, 1fr);
+    margin: auto;
   }
 </style>
