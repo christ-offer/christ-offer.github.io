@@ -5,26 +5,25 @@ import SiteLayout from '../layouts/SiteLayout.astro'
 ---
 <SiteLayout>
 	<article>
-      <header>
-         <h1>About:</h1>
-      </header>
-      <div>
-      <p>About me you know</p>
-      <p>About the site</p>
-      <p>About projects</p>
-      <h2>some random facts</h2>
-      <ul>
-      	<li>thing</li>
-      	<li>about</li>
-      	<li>another thing</li>
-      </ul>
-      <h2>Projects</h2>
-      <ul>
-      	<li>project 1</li>
-      	<li>project 2</li>
-      	<li>project 3</li>
-      </ul>
-      </div>
+      <main>
+      	<img src="/img/fluffmonster.png" alt="a bat that with flowers and colors around it" width="200" style="margin:auto;">
+      	<p>About me you know</p>
+      	<p>About the site</p>
+      	<p>About projects</p>
+      	
+      	<h2>some random facts</h2>
+      	<ul>
+      		<li>thing</li>
+      		<li>about</li>
+      		<li>another thing</li>
+      	</ul>
+      	<h2>Projects</h2>
+      	<ul>
+	      	<li>project 1</li>
+    	  	<li>project 2</li>
+      		<li>project 3</li>
+      	</ul>
+      </main>
    </article>
 </SiteLayout>
 <style>
@@ -38,21 +37,14 @@ import SiteLayout from '../layouts/SiteLayout.astro'
      display: grid;
      grid-column-start:  2;
      place-self: start center;
+     overflow: hidden;
    }
-   article div {
+   article main {
       padding: 1rem;
+      display: grid;
    }
-   article header {
-      border-bottom:  1px solid black;
-   }
-   article header h1 {
-      font-size:  32px;
-      line-height: 1em;
-      font-weight: 900;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-      
+   article main img {
+   	border-radius: 5px;
    }
    article h3 {
       padding-bottom: 1rem;
