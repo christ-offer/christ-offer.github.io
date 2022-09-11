@@ -8,7 +8,9 @@
   <body>
     <header>
       <div class="landing">
+        <a href="/">
         <img src="/img/foxinbox.png" alt="">
+        </a>
       </div>
       <nav>
         <ul>
@@ -21,6 +23,21 @@
     <section class="content-container">
       <slot /> <!-- your content is injected here -->
     </section>
+    <footer>
+      <nav>
+        <ul>
+          <a href="https://github.com/christ-offer">
+            <li>Github</li>
+          </a>
+          <a href="https://pixelfed.social/@christobal">
+            <li>Pixelfed</li>
+          </a>
+          <a href="/">
+            <li>Something</li>
+          </a>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>
 <style>
@@ -69,5 +86,23 @@
     display: grid;
     grid-template-columns: minmax(1rem, 1fr) minmax(0, 1200px) minmax(1rem, 1fr);
     margin: auto;
+  }
+  footer {
+    position:  fixed;
+    width: 100vw;
+    height: 5rem;
+    background-color:  hsl(220, 20%, 20%, 0.6);
+    bottom: 0;
+    display: grid;
+    place-items: center;
+  }
+  footer ul {
+    display: flex;
+    gap: 1rem;
+    color: #fafafa;
+  }
+  footer a {
+    text-decoration: none;
+    color: #fafafa;
   }
 </style>
