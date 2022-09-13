@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Yrsa-Vari';
+  src: url('/fonts/Yrsa-VariableFont-wght.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Abhaya-Reg';
+  src: url('/fonts/AbhayaLibre-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Abhaya-Bold';
+  src: url('/fonts/AbhayaLibre-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-display: swap;
+}

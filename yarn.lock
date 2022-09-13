@@ -20,6 +20,13 @@
   resolved "https://registry.yarnpkg.com/@astrojs/compiler/-/compiler-0.24.0.tgz#aeded097eb325dfdcead9079c2eeb4371289437f"
   integrity sha512-xZ81C/oMfExdF18I1Tyd2BKKzBqO+qYYctSy4iCwH4UWSo/4Y8A8MAzV1hG67uuE7hFRourSl6H5KUbhyChv/A==
 
+"@astrojs/deno@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@astrojs/deno/-/deno-1.0.1.tgz#51eb84de21b87d5e15ccb62c8a232efe6e9e50ad"
+  integrity sha512-8IDe9INLJUCscd1kfMIm4C+9E6ha+6ILmkFjLoas5D9fxWREei6vcztrckwHxTN1sCSwhJFLB0VK6KR1BxRFXg==
+  dependencies:
+    esbuild "^0.14.43"
+
 "@astrojs/language-server@^0.23.0":
   version "0.23.3"
   resolved "https://registry.yarnpkg.com/@astrojs/language-server/-/language-server-0.23.3.tgz#6133bccc22c27b356ef51a558a2be108f1dc51ff"

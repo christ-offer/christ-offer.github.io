@@ -2,6 +2,8 @@ import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
 import Chart from 'chart.js/auto';
 
+import deno from "@astrojs/deno";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [vue()],
@@ -16,7 +18,9 @@ export default defineConfig({
       // https://github.com/shikijs/shiki/blob/main/docs/languages.md
       // langs: [],
       // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
-    },
+      wrap: true
+    }
   },
+  output: "server",
+  adapter: deno()
 });
