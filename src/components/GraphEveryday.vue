@@ -35,23 +35,8 @@ function getTemperature(lat, lon) {
                 temperatureMin
             };
             }
-            // Use the date object in JavaScript (returns the month and day as XX-XX)
-            // var d = new Date();
-            // var date = d.toISOString().slice(0,10);
-            //var day = date.slice(-5);
-            let day = "09-09"
-            // returns and object containing the keys that includes todays month-day 
-            const relevantDates = {};
-            const currentDate = `${day}`;
-            for (let key in historical) {
-                if (key.includes(currentDate)) {
-                relevantDates[key] = historical[key];
-                }
-            }
-            
             
             const labels = Object.keys(historical);
-                
             const temperatures = Object.values(historical).map(item => item.temperature);
             const precipitations = Object.values(historical).map(item => item.precipitation);
             const temperaturesMin = Object.values(historical).map(item => item.temperatureMin);
@@ -60,45 +45,35 @@ function getTemperature(lat, lon) {
             if (chart) {
                 chart.destroy();
             }
-
-            
-            const dailyLabels = Object.keys(relevantDates);
-            const thisDayMaxTemp = Object.values(relevantDates).map(item => item.temperature);
-            const thisDayprecip = Object.values(relevantDates).map(item => item.precipitation);
-            const thisDayMinTemp = Object.values(relevantDates).map(item => item.temperatureMin);
-            const thisDayMaxWind = Object.values(relevantDates).map(item => item.windspeed);
-            console.log(thisDayMaxTemp)
-            console.log(dailyLabels)
-            console.log(labels)
-            chart = new Chart(onThisDayChart, {
-             type: 'line',
+            chart = new Chart(myChart, {
+                type: 'line',
                 data: {
-                    labels: dailyLabels,
+                    labels,
                     datasets: [
                     {
                         label: 'Temperature Max',
-                        data: thisDayMaxTemp,
+                        data: temperatures,
                         backgroundColor: 'rgba(255, 99, 132, 0.2)',
                         borderColor: 'rgba(255, 99, 132, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Temperature Min',
-                        data: thisDayMinTemp,
+                        data: temperaturesMin,
                         backgroundColor: 'rgba(0, 99, 132, 0.2)',
                         borderColor: 'rgba(0, 99, 132, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Precipitation 24H',
-                        data: thisDayprecip,
+                        data: precipitations,
                         backgroundColor: 'rgba(122, 99, 132, 0.2)',
                         borderColor: 'rgba(122, 99, 132, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Wind Speed Max',
-                        data: thisDayMaxWind,
+                        data: windspeeds,
                         backgroundColor: 'rgba(35, 99, 132, 0.2)',
                         borderColor: 'rgba(35, 99, 132, 1)',
                         borderWidth: 1
@@ -141,7 +116,7 @@ function getTemperature(lat, lon) {
                     }
                 }
             });
-        })
+        }
         .catch(error => console.log(error));
 }
 </script>
@@ -152,8 +127,8 @@ function getTemperature(lat, lon) {
             <button id="submit" v-on:click="getCoordinates(cityname)">Submit</button>
         </div>
          <div class="chart">
-            <h3>On this day stats 1960-2021</h3>
-            <canvas id="onThisDayChart"></canvas>
+            <h3>Daily stats 1960-2021</h3>
+            <canvas id="myChart"></canvas>
         </div>
     </div>
 </template>
