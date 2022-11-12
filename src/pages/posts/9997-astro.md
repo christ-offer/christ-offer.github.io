@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: "../../layouts/BlogPostLayout.astro"
 title: "First steps into AstroJS"
 description: "Astro, Vue and Github Pages/Actions"
 exerpt: "Something something this webpage something something AI something something midjourney"
