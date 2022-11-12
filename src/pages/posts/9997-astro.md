@@ -1,17 +1,12 @@
 ---
 layout: "../../layouts/BlogPostLayout.astro"
-title: "Built with Astro"
-description: "Astro, Vue and Github Pages/Actions"
-exerpt: ""
+title: "To the grain dealers of Aspendus"
+description: ""
+exerpt: "The earth is mother of us all, for she is just; but you, because you are unjust have pretended that she is your mother alone; and if you do not stop, I will not permit you to remain upon her."
 author: "Chris"
 date: "09-11-2022"
 ---
-# Why Astro?
 
-Well, besides the eternal "ohh a new js framework" , I liked the fact that it by default ships 0 js to the client. And allows for partial hydration, or as the cool kids call it. Islands Architecture.
-Other than that the fact that I can use Vue components inside of it (I already work with Vue in my dayjob) made it extra easy to test it out. And thankfully it's not JSX, which is just *chefs kiss*.
+# To the grain dealers of Aspendus
 
-
-<div style="text-align: center">
-<img src="/img/kittyvillage.png" alt="fox in a box" width="70%" />
-</div>
+The earth is mother of us all, for she is just; but you, because you are unjust have pretended that she is your mother alone; and if you do not stop, I will not permit you to remain upon her.
