@@ -1,15 +1,15 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro'
-const frontmatter = Astro.props;
+const astroprops = Astro.props;
 ---
 <SiteLayout>
    <article>
    <!-- ... -->
       <header>
-         <h1>{frontmatter.title}</h1>
-         <span>This post was written by {frontmatter.author} on the {frontmatter.date}</span>
+         <h1>{astroprops.title}</h1>
+         <span>This post was written by {astroprops.author} on the {astroprops.date}</span>
       </header>
-      <h3>{frontmatter.description}</h3>
+      <h3>{astroprops.description}</h3>
       <div>
       <slot />
       </div>
