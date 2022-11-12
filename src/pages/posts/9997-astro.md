@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: First steps into AstroJS
+title: "First steps into AstroJS"
 description: "Astro, Vue and Github Pages/Actions"
 exerpt: "Something something this webpage something something AI something something midjourney"
-author: Chris
+author: "Chris"
 date: "09-11-2022"
 ---
 <div style="text-align: center">
