@@ -51,6 +51,7 @@
     font-size: 100%;
     max-height: 100vh;
     height: 100vh;
+    
     font-size: clamp(0.8rem, 0.7222222222222223rem + 0.3888888888888889vw, 1.5rem);
   }
   header {
@@ -86,10 +87,12 @@
     width:  40%;
   }
   .content-container {
-    margin-bottom: 10rem;
+    
     display: grid;
     grid-template-columns: minmax(1rem, 1fr) minmax(0, 1200px) minmax(1rem, 1fr);
     margin: auto;
+    overflow-x: scroll;
+    margin-bottom: 10rem;
   }
   footer {
     position:  fixed;

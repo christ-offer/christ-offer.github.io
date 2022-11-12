@@ -6,88 +6,122 @@ import SiteLayout from '../layouts/SiteLayout.astro'
 <SiteLayout>
 	<article>
       <main>
-      	<section class="intro">
-      		<img src="/img/fluffmonster.png" alt="a bat that with flowers and colors around it" width="200">
-      		<p>So you somehow found your way here. That's one more than the zero I expected</p>
-      		<p>So I guess I should probably say some words, I dunno, about either the site or myself. Perhaps both?</p>
+				<section class="intro">
+					<img src="/img/fluffmonster.png" alt="a bat that with flowers and colors around it" width="200">
+					<p>So you somehow found your way here. That's one more than the zero I expected</p>
+					<p>So I guess I should probably say some words, I dunno, about either the site or myself. Perhaps both?</p>
 					<p>Over time I'll probably/maybe/depends improve this site, add some more stuff, maybe a portfolio when I have enough stuff for an actual portfolio</p>
-      	</section>
-      	<section class="tech">
-      		<h2>The site is built using</h2>
-      		<ul>
-      			<li>Astro Js</li>
-      			<li>Some Vue</li>
-      			<li>Some JS</li>
-      			<li>Chart.js for the Graphs</li>
-      		</ul>
-      		<h2>Projects</h2>
-      		<ul>
-	      		<li>Well, this website I guess</li>
-    	  		<li>The Historic Temperature/Weather graphs</li>
-      			<li>Running a small self-hosted nextcloud/mastdon/etc server for me and my friends</li>
-						<li>Expanding this list</li>
-      		</ul>
-					<p>Should probably mention, the data for the graphs comes from <a href="https://open-meteo.com/">Open Meteo</a> </p>
-      	</section>
-      	<section class="about-me">
-      		<h2>Dayjob</h2>
-      		<p>I'm a 30-something he/him who currently resides in Barcelona.</p>
-					<ul>I'm interested in a bunch of stuff, for example:
-						<li>History</li>
-						<li>Archaeology</li>
-						<li>Philosophy</li>
-						<li>Anarchism</li>
-						<li>Music, of most kinds</li>
-						<li>Knowledge, of just about any kind</li>
-					</ul>
-					<p>I ply my trade at a small Dev Studio called <a href="https://seam.es"> Seam</a> (We neither work with plywood nor seams). Rather we do some inhouse work and take on clients. If you need something done. Hit us up.</p>
-      	</section>
-      </main>
-   </article>
+				</section>
+    </main>
+  </article>
+
+	<article>
+		<section class="about-me">
+			<header>
+				<h2>About Me</h2>
+			</header>
+			<main>
+				<p>I'm a 30-something he/him who currently resides in Barcelona.</p>
+				<p>I'm interested in a bunch of stuff, for example:</p>
+				<ul>
+					<li>History</li>
+					<li>Archaeology</li>
+					<li>Philosophy</li>
+					<li>Anarchism</li>
+					<li>Music, of most kinds</li>
+					<li>Knowledge, of just about any kind</li>
+				</ul>
+				<p>I ply my trade at a small Dev Studio hiring ourselves out to clients and working on some inhouse projects. Mostly front-end, but also anything really.</p>
+		</main>
+		</section>	
+	</article>
+
+	<article>
+		<section>
+			<header>
+				<h2>Projects</h2>
+			</header>
+			<main>
+				<ul>
+					<li>Well, this website I guess</li>
+					<li>The Historic Temperature/Weather graphs</li>
+					<li>Running a small self-hosted nextcloud/mastdon/etc server for me and my friends</li>
+					<li>Expanding this list</li>
+				</ul>
+				<p>Should probably mention, the data for the graphs comes from <a href="https://open-meteo.com/">Open Meteo</a> </p>
+			</main>
+		</section>
+	</article>
+	
+	<article>
+		<section class="tech">
+			<header>
+			<h2>Tech stuff</h2>
+		</header>
+		<main>
+			<p>Site is built using:</p>
+			<ul>
+				<li>Astro</li>
+				<li>Some Vue</li>
+				<li>Chart.js for the Graphs</li>
+				<li>Thoughts and prayers</li>
+			</ul>
+		</main>
+		</section>
+	</article>
 </SiteLayout>
 <style>
-   article {
-   	  width: 100%;
-   	  max-width: 70%;
-      background-color:  hsl(220, 50%, 95%);
-      margin-top: 5rem;
-      padding: 1rem;
-      border-radius: 2px;
-     display: grid;
-     grid-column-start:  2;
-     place-self: start center;
-     overflow: hidden;
-   }
-   article main {
-      padding: 1rem;
-      display: grid;
-   }
-   article main img {
-   	border-radius: 5px;
-   }
-   article h3 {
-      padding-bottom: 1rem;
-      max-width: 60%;
-      place-self: center;
-      text-align: center;
-   }
-   article ul {
-   	list-style: square;
-   	margin-block: 1rem;
-   	margin-left: 3rem;
-   }
-   article p {
-   	margin-block: 0.5rem;
-   }
-   .intro {
-   	display: grid;
-   }
-   .intro img {
-   	margin-bottom: 2rem;
-   	margin-inline: auto;
-   }
-   a {
-   	text-decoration:  none;
-   	color: purple;
-   }
+	article:first-of-type {
+		margin-top: 5rem;
+	}
+  article {
+    width: 100%;
+    max-width: 70%;
+    background-color:  hsl(220, 50%, 95%);
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    border-radius: 2px;
+    display: grid;
+    grid-column-start:  2;
+    place-self: start center;
+    overflow: hidden;
+  }
+  article main {
+    padding: 1rem;
+    display: grid;
+  }
+  article main img {
+		border-radius: 5px;
+  }
+	article h3 {
+    padding-bottom: 1rem;
+    max-width: 60%;
+    place-self: center;
+    text-align: center;
+  }
+  article ul {
+		list-style: square;
+		margin-block: 1rem;
+		margin-left: 3rem;
+  }
+  article p {
+		margin-block: 0.5rem;
+  }
+	section header {
+		text-align: center;
+		padding-block: 1rem;
+		background-color:rebeccapurple;
+		color: whitesmoke;
+	}
+  .intro {
+		display: grid;
+  }
+  .intro img {
+		margin-bottom: 2rem;
+		margin-inline: auto;
+  }
+  a {
+		text-decoration:  none;
+		color: purple;
+  }
 </style>
