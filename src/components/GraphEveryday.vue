@@ -117,7 +117,7 @@ function getTemperature(lat, lon) {
                 }
             });
         }
-        .catch(error => console.log(error));
+        ).catch(error => console.log(error));
 }
 </script>
 <template>
