@@ -8,11 +8,15 @@ const posts = await Astro.glob('./posts/*.md');
 	<main>
 	<section class="blog">
 		{posts.map(post => (
-		<article class="post-container">
-			<h2>{post.frontmatter.title}</h2>
-			<p>{post.frontmatter.exerpt}</p>
-			<p class="author">Posted by {post.frontmatter.author}</p>
-			<a href={post.url}>Read more</a>
+			<article class="post-container">
+				<header>
+				<h2>{post.frontmatter.title}</h2>
+			</header>
+				<p>{post.frontmatter.exerpt}</p>
+			<footer>
+				<p class="author">Posted by {post.frontmatter.author}</p>
+				<a href={post.url}>Read more</a>
+			</footer>
 		</article>
 		))}
 	</section>
@@ -21,7 +25,7 @@ const posts = await Astro.glob('./posts/*.md');
 <style>
 	main {
 		max-width: 60%;
-		padding:  1rem;
+		
 		margin: auto;
 		margin-top: 5rem;
 		display: grid;
@@ -36,17 +40,20 @@ const posts = await Astro.glob('./posts/*.md');
 	a:hover {
 		text-decoration:  underline;
 	}
+	.blog header {
+		background-color: rebeccapurple
+	}
 	h2 {
-		border-bottom: 1px solid black;
-		font-size: 2rem;
+		
 		text-align: center;
-		padding-bottom: 1rem;
+		padding-block: 1rem;
+		color: whitesmoke
 	}
 	.blog {
 
 	}
 	.post-container {
-		padding: 1rem;
+
 		border-radius: 2px;
 		display: grid;
 		background-color:  hsl(220, 50%, 95%);
