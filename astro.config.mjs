@@ -20,7 +20,7 @@ export default defineConfig({
       // Enable word wrap to prevent horizontal scrolling
       wrap: true
     }
-  },
-  output: "server",
-  adapter: deno()
+  }
+  // output: "server",
+  // adapter: deno()
 });
