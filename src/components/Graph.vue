@@ -36,10 +36,10 @@ function getTemperature(lat, lon) {
             };
             }
             // Use the date object in JavaScript (returns the month and day as XX-XX)
-            // var d = new Date();
-            // var date = d.toISOString().slice(0,10);
-            //var day = date.slice(-5);
-            let day = "09-09"
+            var d = new Date();
+            var date = d.toISOString().slice(0,10);
+            var day = date.slice(-5);
+            //let day = "09-09"
             // returns and object containing the keys that includes todays month-day 
             const relevantDates = {};
             const currentDate = `${day}`;
