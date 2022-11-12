@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
 import Chart from 'chart.js/auto';
 
-import deno from "@astrojs/deno";
+//import deno from "@astrojs/deno";
 
 // https://astro.build/config
 export default defineConfig({
