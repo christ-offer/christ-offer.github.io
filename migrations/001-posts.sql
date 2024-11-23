@@ -36,6 +36,19 @@ create or replace function public.html_post(public.posts) returns text as $$
   );
 $$ language sql stable;
 
+-- Function to get latest post from the database
+create or replace function public.get_latest_post() returns "text/html" as $$
+declare
+  post public.posts;
+begin
+  select * into post from public.posts order by created_at desc limit 1;
+  if post is null then
+    return '<div class="no-posts">No posts</div>';
+  end if;
+  return public.html_post(post);
+end;
+$$ language plpgsql;
+
 --Functin to get a single post based on title
 create or replace function public.get_post_by_title(input_title text) returns "text/html" as $$
 declare

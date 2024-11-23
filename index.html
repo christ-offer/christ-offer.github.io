@@ -147,10 +147,21 @@
         </article>
       </section>
       <section class="posts-section">
-        <h3>Musings:</h3>
+        <h3>Latest musing from my <a href="blog.html">blog</a>:</h3>
         <div
           class="posts"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_latest_post"
+          hx-swap="innerHTML"
+          hx-trigger="load"
+        >
+          <div class="htmx-indicator">Loading...</div>
+        </div>
+      </section>
+      <section class="posts-section">
+        <h3>Latest picture from my <a href="photos.html">photos</a>:</h3>
+        <div
+          class="posts"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_latest_photo"
           hx-swap="innerHTML"
           hx-trigger="load"
         >
@@ -167,4 +178,9 @@
       </a>
     </footer>
   </body>
+  <script>
+    function openModal(element) {
+      return;
+    }
+  </script>
 </html>

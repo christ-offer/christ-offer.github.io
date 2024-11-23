@@ -5,6 +5,7 @@ create table if not exists public.projects (
   description text not null,
   url text,
   photo_url text,
+  type text, -- work / personal
   created_at timestamptz not null default now()
 );
 
