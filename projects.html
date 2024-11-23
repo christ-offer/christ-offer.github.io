@@ -49,8 +49,32 @@
       </nav>
     </header>
     <main>
+      <div>
+        <button
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
+          hx-target="#projects"
+          hx-swap="innerHTML"
+        >
+          All Projects
+        </button>
+        <button
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_work_projects"
+          hx-target="#projects"
+          hx-swap="innerHTML"
+        >
+          Work Projects
+        </button>
+        <button
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_personal_projects"
+          hx-target="#projects"
+          hx-swap="innerHTML"
+        >
+          Personal Projects
+        </button>
+      </div>
       <div
         class="projects"
+        id="projects"
         hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
         hx-swap="innerHTML"
         hx-trigger="load"

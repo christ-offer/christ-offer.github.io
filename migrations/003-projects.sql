@@ -46,3 +46,19 @@ create or replace function public.get_projects() returns "text/html" as $$
     '<div class="no-projects"><p>No projects available.</p></div>'
   ) from projects p;
 $$ language sql;
+
+-- Function to get all type work projects as HTML
+create or replace function public.get_work_projects() returns "text/html" as $$
+  select coalesce(
+    string_agg(public.html_project(p), '' order by p.created_at desc),
+    '<div class="no-projects"><p>No work projects available.</p></div>'
+  ) from projects p where p.type = 'work';
+$$ language sql;
+
+-- Function to get all type personal projects as HTML
+create or replace function public.get_personal_projects() returns "text/html" as $$
+  select coalesce(
+    string_agg(public.html_project(p), '' order by p.created_at desc),
+    '<div class="no-projects"><p>No personal projects available.</p></div>'
+  ) from projects p where p.type = 'personal';
+$$ language sql;
