@@ -1,6 +1,15 @@
 /*
 Global Styles
 */
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
 @view-transition {
   navigation: auto;
 }
@@ -36,7 +45,7 @@ body {
 
         a {
           text-decoration: none;
-          color: rebeccapurple;
+          color: whitesmoke;
           transition: transform 0.2s ease;
           display: inline-block;
           position: relative;
@@ -63,6 +72,7 @@ body {
   }
 
   main {
+    margin-block: 4rem;
     grid-column: 2;
     position: relative;
     .htmx-indicator {
@@ -70,6 +80,20 @@ body {
       top: 40%;
       left: 50%;
       font-size: 2rem;
+    }
+  }
+
+  footer {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+
+    a {
+      text-decoration: none;
+      color: whitesmoke;
     }
   }
 }
