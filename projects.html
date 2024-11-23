@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX Postgrest View Transitions</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <link rel="stylesheet" href="assets/reset.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "source": "document",
+            "where": {
+              "href_matches": "/*"
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body
+    hx-headers='{"Accept": "text/html", "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY"}'
+  >
+    <header>
+      <h1>Welcome to the machine</h1>
+      <nav>
+        <menu>
+          <li>
+            <a href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="photos.html">Photos</a>
+          </li>
+          <li>
+            <a class="active-nav" href="projects.html">Projects</a>
+          </li>
+        </menu>
+      </nav>
+    </header>
+    <main>
+      <div class="htmx-indicator">Loading...</div>
+      <div
+        class="projects"
+        hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
+        hx-swap="innerHTML"
+        hx-trigger="load"
+      />
+    </main>
+  </body>
+</html>

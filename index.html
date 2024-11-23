@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello, cruel world!</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+    <link rel="stylesheet" href="assets/reset.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script type="speculationrules">
+      {
+        "prerender": [
+          {
+            "source": "document",
+            "where": {
+              "href_matches": "/*"
+            },
+            "eagerness": "moderate"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body
+    hx-headers='{"Accept": "text/html", "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY"}'
+  >
+    <header>
+      <h1>Welcome to the machine</h1>
+      <div class="hero-image"></div>
+      <nav>
+        <menu>
+          <li>
+            <a class="active-nav" href="index.html">Home</a>
+          </li>
+          <li>
+            <a href="photos.html">Photos</a>
+          </li>
+          <li>
+            <a href="projects.html">Projects</a>
+          </li>
+        </menu>
+      </nav>
+    </header>
+    <main>
+      <section class="intro">
+        <article>
+          <h2>About me:</h2>
+          <p class="intro-text">
+            Hi! I'm Chris! I'm a full-stack developer who began my journey at a
+            small development studio where I was also a co-owner. There I honed
+            my skills across diverse client projects and technology stacks.
+            Currently, I work as a freelance developer for a Barcelona-based
+            startup.
+          </p>
+          <p>
+            Besides keeping up to date on my main stack -
+            <a
+              href="https://vuejs.org"
+              class="vue-link intro-link"
+              target="_blank"
+              >Vue</a
+            >/<a
+              href="https://nuxt.com"
+              class="nuxt-link intro-link"
+              target="_blank"
+              >Nuxt</a
+            >,
+            <a
+              href="https://nodejs.org"
+              class="node-link intro-link"
+              target="_blank"
+              >Node</a
+            >,
+            <a
+              href="https://www.typescriptlang.org"
+              class="ts-link intro-link"
+              target="_blank"
+              >Typescript</a
+            >,
+            <a
+              href="https://www.postgresql.org"
+              class="pg-link intro-link"
+              target="_blank"
+              >Postgres</a
+            >/<a
+              href="https://supabase.com"
+              class="supabase-link intro-link"
+              target="_blank"
+              >Supabase</a
+            >
+            - and I maintain a curious approach to technology, regularly
+            exploring tools like
+            <a
+              href="https://www.python.org"
+              class="python-link intro-link"
+              target="_blank"
+              >Python</a
+            >,
+            <a
+              href="https://deno.land"
+              class="deno-link intro-link"
+              target="_blank"
+              >Deno</a
+            >, and
+            <a
+              href="https://htmx.org"
+              class="htmx-link intro-link"
+              target="_blank"
+              >HTMX</a
+            >, while having practical experience (in some form) with
+            <a
+              href="https://aws.amazon.com"
+              class="aws-link intro-link"
+              target="_blank"
+              >AWS</a
+            >,
+            <a
+              href="https://www.shopify.com"
+              class="shopify-link intro-link"
+              target="_blank"
+              >Shopify</a
+            >, and CI/CD pipelines.
+          </p>
+        </article>
+        <article>
+          <h2>About this site:</h2>
+          <p class="intro-text">
+            What started out as a playground for postgrest + htmx, suddenly
+            became my new personal website. The frontend is purely HTML/CSS
+            (with htmx for any HTTP requests). The entire backend runs on
+            Supabase, with simple functions to return HTML directly from the
+            database
+          </p>
+          <p>
+            Other than the aforementioned, the site is a simple blog, and a
+            place for me to put some of my photographs. There is also a page
+            where I show of projects I've worked on - as one does on one of
+            these websites.
+          </p>
+        </article>
+      </section>
+      <section class="posts">
+        <div class="htmx-indicator">Loading...</div>
+        <div
+          class="posts"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx"
+          hx-swap="innerHTML"
+          hx-trigger="load"
+        />
+      </section>
+    </main>
+  </body>
+</html>
