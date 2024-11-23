@@ -2,6 +2,8 @@
 create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
+  subtitle text not null,
+  summary text not null,
   body text not null,
   post_url text,
   created_at timestamptz not null default now()
@@ -14,6 +16,25 @@ alter table public.posts enable row level security;
 create policy "Posts can be read by anyone"
   on posts for select
   using (true);
+
+-- Create a trigger to create a post_url from the title
+create or replace function public.create_post_url() returns trigger as $$
+begin
+  new.post_url := public.sanitize_input(new.title);
+  return new;
+end;
+$$ language plpgsql;
+
+create trigger create_post_url
+  before insert or update on public.posts
+  for each row
+  execute procedure public.create_post_url();
+
+create trigger update_post_url
+  before update on public.posts
+  for each row
+  execute procedure public.create_post_url();
+
 
 -- Individual post HTML formatter
 create or replace function public.html_post(public.posts) returns text as $$
@@ -55,11 +76,22 @@ $$ language plpgsql;
 create or replace function public.get_post_by_title(input_title text) returns "text/html" as $$
 declare
   post public.posts;
+  sanitized_input text;
 begin
-  select * into post from public.posts where post_url = input_title;
+  -- Sanitize the input title
+  sanitized_input := public.sanitize_input(input_title);
+
+  -- If sanitized title is empty or null, return no posts
+  if sanitized_input is null or sanitized_input = '' then
+    return '<div class="no-posts">No posts</div>';
+  end if;
+
+  select * into post from public.posts where post_url = sanitized_input;
+
   if post is null then
     return '<div class="no-posts">No posts</div>';
   end if;
+
   return public.html_post(post);
 end;
 $$ language plpgsql;

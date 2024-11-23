@@ -10,3 +10,10 @@ create or replace function public.sanitize_html(text) returns text as $$
     '<', '<'),
     '''', '&apos;')
 $$ language sql;
+
+create or replace function public.sanitize_input(input text) returns text as $$
+begin
+  -- Replace anything that's not alphanumeric or hyphen with empty string
+  return regexp_replace(input, '[^a-zA-Z0-9\-:]', '', 'g');
+end;
+$$ language plpgsql;
