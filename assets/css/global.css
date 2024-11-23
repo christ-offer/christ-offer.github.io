@@ -14,6 +14,14 @@ Global Styles
   navigation: auto;
 }
 
+::view-transition-old(active-nav-marker),
+::view-transition-new(active-nav-marker) {
+  height: 100%;
+  width: 100%;
+  animation: none;
+  mix-blend-mode: normal;
+}
+
 html {
   background-color: #1a1a1a;
   color: antiquewhite;
@@ -60,6 +68,7 @@ body {
           clip-path: polygon(0% 0%, 90% 10%, 100% 90%, 10% 100%);
           transform: rotate(-3deg);
           box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+          view-transition-name: active-nav-marker;
         }
 
         .active-nav {
