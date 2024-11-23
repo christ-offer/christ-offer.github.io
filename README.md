@@ -1,6 +1,6 @@
 # Personal Web
 
-Welcome to my personal website! 🚀 This project is crafted with a modern, minimalist tech stack:
+Welcome to my personal website! 🚀 This project is crafted with a modern(?), minimalist tech stack:
 
 - **HTMX** for dynamic interactions
 - **Supabase** as the backend platform
@@ -15,7 +15,7 @@ JavaScript usage is intentionally minimal - reserved only for:
 - Essential UI animations
 - Query string manipulation
 
-_Just as the web should be._
+_Just as the web should be. *wink wink nudge nudge*_
 
 ## Inspiration
 
