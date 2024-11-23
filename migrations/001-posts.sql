@@ -3,6 +3,7 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   body text not null,
+  post_url text,
   created_at timestamptz not null default now()
 );
 
@@ -18,13 +19,13 @@ create policy "Posts can be read by anyone"
 create or replace function public.html_post(public.posts) returns text as $$
   select format($html$
     <div class="post" id="post-%1$s">
-      <a href="post.html?title=%2$s">
+      <a href="post.html?title=%4$s">
         <article>
           <h2>%2$s</h2>
           <div class="body">
             %3$s
           </div>
-          <small>Posted: %4$s</small>
+          <small>Posted: %5$s</small>
         </article>
       </a>
     </div>
@@ -32,6 +33,7 @@ create or replace function public.html_post(public.posts) returns text as $$
     $1.id,
     public.sanitize_html($1.title),
     public.sanitize_html($1.body),
+    public.sanitize_html($1.post_url),
     to_char($1.created_at, 'Month DD, YYYY')
   );
 $$ language sql stable;
@@ -54,7 +56,7 @@ create or replace function public.get_post_by_title(input_title text) returns "t
 declare
   post public.posts;
 begin
-  select * into post from public.posts where title = input_title;
+  select * into post from public.posts where post_url = input_title;
   if post is null then
     return '<div class="no-posts">No posts</div>';
   end if;
