@@ -18,21 +18,23 @@ create policy "Projects can be read by anyone" on projects for select using (tru
 -- Individual project HTML formatter
 create or replace function public.html_project(public.projects) returns text as $$
   select format($html$
-    <div>
-      <article>
-        <h2><a href="%5$s">%2$s</a></h2>
-        <div class="body">
+    <a href="%5$s" target="_blank">
+      <article class="project-item">
+        <h2>%2$s</h2>
+        <img src="%6$s" />
+        <div class="project-content">
           %3$s
         </div>
         <small>Posted: %4$s</small>
       </article>
-    </div>
+    </a>
     $html$,
     $1.id,
     public.sanitize_html($1.title),
     public.sanitize_html($1.description),
     to_char($1.created_at, 'Month DD, YYYY'),
-    coalesce($1.url, '#')
+    coalesce($1.url, '#'),
+    coalesce($1.photo_url, '#')
   );
 $$ language sql stable;
 

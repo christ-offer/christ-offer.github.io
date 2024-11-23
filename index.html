@@ -37,6 +37,9 @@
             <a class="active-nav" href="index.html">Home</a>
           </li>
           <li>
+            <a href="blog.html">Blog</a>
+          </li>
+          <li>
             <a href="photos.html">Photos</a>
           </li>
           <li>
@@ -143,14 +146,16 @@
           </p>
         </article>
       </section>
-      <section class="posts">
-        <div class="htmx-indicator">Loading...</div>
+      <section class="posts-section">
+        <h3>Musings:</h3>
         <div
           class="posts"
           hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx"
           hx-swap="innerHTML"
           hx-trigger="load"
-        />
+        >
+          <div class="htmx-indicator">Loading...</div>
+        </div>
       </section>
     </main>
     <footer>

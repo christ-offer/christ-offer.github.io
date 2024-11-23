@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMX Postgrest View Transitions</title>
+    <title>Hello, cruel world!</title>
     <script src="https://unpkg.com/htmx.org"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
-    <link rel="stylesheet" href="assets/reset.css" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="../assets/reset.css" />
+    <link rel="stylesheet" href="../assets/styles.css" />
     <script type="speculationrules">
       {
         "prerender": [
@@ -24,38 +24,48 @@
         ]
       }
     </script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const title = urlParams.get("title");
+    </script>
   </head>
   <body
     hx-headers='{"Accept": "text/html", "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY"}'
   >
     <header>
       <h1>Welcome to the machine</h1>
+      <div class="hero-image"></div>
       <nav>
         <menu>
           <li>
-            <a href="index.html">Home</a>
+            <a href="../index.html">Home</a>
           </li>
           <li>
-            <a href="blog.html">Blog</a>
+            <a class="active-nav" href="../blog.html">Blog</a>
           </li>
           <li>
-            <a href="photos.html">Photos</a>
+            <a href="../photos.html">Photos</a>
           </li>
           <li>
-            <a class="active-nav" href="projects.html">Projects</a>
+            <a href="../projects.html">Projects</a>
           </li>
         </menu>
       </nav>
     </header>
     <main>
-      <div
-        class="projects"
-        hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
-        hx-swap="innerHTML"
-        hx-trigger="load"
-      >
-        <div class="htmx-indicator">Loading...</div>
-      </div>
+      <section class="posts-section">
+        <h3>Musings:</h3>
+        <div
+          class="posts"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_post_by_title"
+          hx-swap="innerHTML"
+          hx-params="input_title"
+          hx-vals="js:{input_title: title}"
+          hx-trigger="load"
+        >
+          <div class="htmx-indicator">Loading...</div>
+        </div>
+      </section>
     </main>
     <footer>
       <a href="https://github.com/christ-offer" target="_blank">

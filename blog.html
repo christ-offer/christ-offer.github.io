@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMX Postgrest View Transitions</title>
+    <title>Hello, cruel world!</title>
     <script src="https://unpkg.com/htmx.org"></script>
     <script
       type="module"
@@ -30,32 +30,36 @@
   >
     <header>
       <h1>Welcome to the machine</h1>
+      <div class="hero-image"></div>
       <nav>
         <menu>
           <li>
             <a href="index.html">Home</a>
           </li>
           <li>
-            <a href="blog.html">Blog</a>
+            <a class="active-nav" href="blog.html">Blog</a>
           </li>
           <li>
             <a href="photos.html">Photos</a>
           </li>
           <li>
-            <a class="active-nav" href="projects.html">Projects</a>
+            <a href="projects.html">Projects</a>
           </li>
         </menu>
       </nav>
     </header>
     <main>
-      <div
-        class="projects"
-        hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
-        hx-swap="innerHTML"
-        hx-trigger="load"
-      >
-        <div class="htmx-indicator">Loading...</div>
-      </div>
+      <section class="posts-section">
+        <h3>Musings:</h3>
+        <div
+          class="posts"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx"
+          hx-swap="innerHTML"
+          hx-trigger="load"
+        >
+          <div class="htmx-indicator">Loading...</div>
+        </div>
+      </section>
     </main>
     <footer>
       <a href="https://github.com/christ-offer" target="_blank">
@@ -66,4 +70,8 @@
       </a>
     </footer>
   </body>
+  <script>
+    const queryString = window.location.search;
+    console.log(queryString);
+  </script>
 </html>

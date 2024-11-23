@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTMX Postgrest View Transitions</title>
     <script src="https://unpkg.com/htmx.org"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
     <link rel="stylesheet" href="assets/reset.css" />
     <link rel="stylesheet" href="assets/styles.css" />
     <script type="speculationrules">
@@ -32,6 +36,9 @@
             <a href="index.html">Home</a>
           </li>
           <li>
+            <a href="blog.html">Blog</a>
+          </li>
+          <li>
             <a class="active-nav" href="photos.html">Photos</a>
           </li>
           <li>
@@ -45,14 +52,23 @@
         <span class="close">&times;</span>
         <img class="modal-content" id="modalImage" />
       </div>
-      <div class="htmx-indicator">Loading...</div>
       <div
         class="gallery"
         hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos"
         hx-swap="innerHTML"
         hx-trigger="load"
-      />
+      >
+        <div class="htmx-indicator">Loading...</div>
+      </div>
     </main>
+    <footer>
+      <a href="https://github.com/christ-offer" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+      <a href="https://www.linkedin.com/in/chris-holst/" target="_blank">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </footer>
   </body>
   <script>
     function openModal(element) {
