@@ -45,6 +45,19 @@ begin
 end;
 $$ language plpgsql;
 
+-- Function to get 1 random photo from the database
+create or replace function public.get_random_photo() returns "text/html" as $$
+declare
+  photo public.photos;
+begin
+  select * into photo from public.photos order by random() limit 1;
+  if photo is null then
+    return '<div class="no-photos">No photos</div>';
+  end if;
+  return public.html_photo(photo);
+end;
+$$ language plpgsql;
+
 -- Function to get photos with HTMX-specific pagination
 create or replace function public.get_photos_htmx(
   page_number integer default 1,
