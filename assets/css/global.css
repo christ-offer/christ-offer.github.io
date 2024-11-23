@@ -1,0 +1,106 @@
+/*
+Global Styles
+*/
+* {
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+html {
+  background-color: #1a1a1a;
+  color: antiquewhite;
+}
+
+body {
+  display: grid;
+  grid-template-columns: minmax(2rem, 1fr) minmax(340px, 60rem) minmax(
+      2rem,
+      1fr
+    );
+
+  header {
+    text-align: center;
+    grid-column: 2;
+
+    menu {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      font-size: 1.5rem;
+
+      li {
+        list-style: none;
+
+        a {
+          text-decoration: none;
+          color: whitesmoke;
+          transition: transform 0.2s ease;
+          display: inline-block;
+          position: relative;
+        }
+
+        .active-nav::before {
+          content: "";
+          position: absolute;
+          top: 1rem;
+          background-color: orange;
+          height: 40%;
+          width: 60%;
+          z-index: -1;
+          clip-path: polygon(0% 0%, 90% 10%, 100% 90%, 10% 100%);
+          transform: rotate(-3deg);
+          box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .active-nav {
+          color: whitesmoke;
+        }
+      }
+    }
+  }
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  main {
+    grid-column: 2;
+    position: relative;
+    overflow: scroll;
+    margin-bottom: 5rem;
+    .htmx-indicator {
+      text-align: center;
+      font-size: 2rem;
+      grid-column: 1 / -1;
+    }
+  }
+
+  footer {
+    width: 100%;
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #1a1a1a;
+
+    a {
+      text-decoration: none;
+      color: whitesmoke;
+    }
+  }
+}

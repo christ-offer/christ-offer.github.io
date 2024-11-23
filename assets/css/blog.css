@@ -1,0 +1,43 @@
+/*
+Blog
+*/
+
+.post {
+  margin-bottom: 1rem;
+  border: #00dc82 1px solid;
+  padding: 2rem;
+
+  a {
+    text-decoration: none;
+    color: antiquewhite;
+  }
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  small {
+    color: gray;
+    font-size: 0.8rem;
+  }
+
+  .body {
+    margin-top: 0.5rem;
+  }
+}
+
+.pagination {
+  display: grid;
+  max-width: 33ch;
+  place-self: center;
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  span {
+    color: gray;
+  }
+}
