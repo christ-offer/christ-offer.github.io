@@ -190,6 +190,11 @@ Home Page / Blog
   border: #00dc82 1px solid;
   padding: 2rem;
 
+  a {
+    text-decoration: none;
+    color: antiquewhite;
+  }
+
   h2 {
     margin-bottom: 0.5rem;
   }

@@ -18,13 +18,15 @@ create policy "Posts can be read by anyone"
 create or replace function public.html_post(public.posts) returns text as $$
   select format($html$
     <div class="post" id="post-%1$s">
-      <article>
-        <h2>%2$s</h2>
-        <div class="body">
-          %3$s
-        </div>
-        <small>Posted: %4$s</small>
-      </article>
+      <a href="post.html?title=%2$s">
+        <article>
+          <h2>%2$s</h2>
+          <div class="body">
+            %3$s
+          </div>
+          <small>Posted: %4$s</small>
+        </article>
+      </a>
     </div>
     $html$,
     $1.id,
