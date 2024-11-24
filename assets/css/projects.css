@@ -13,21 +13,21 @@ Projects
     padding: 0.5rem 1rem;
     background: transparent;
     border: none;
-    color: #fff;
+    color: var(--text-light-primary);
     cursor: pointer;
   }
   .work-projects-filter {
     padding: 0.5rem 1rem;
     background: transparent;
     border: none;
-    color: #fff;
+    color: var(--text-light-primary);
     cursor: pointer;
   }
   .personal-projects-filter {
     padding: 0.5rem 1rem;
     background: transparent;
     border: none;
-    color: #fff;
+    color: var(--text-light-primary);
     cursor: pointer;
   }
 }
@@ -50,7 +50,7 @@ Projects
       display: grid;
       position: relative;
       h2 {
-        color: antiquewhite;
+        color: var(--text-primary);
         font-size: 2rem;
         margin-block: 1rem;
         margin-right: 2rem;
@@ -76,6 +76,7 @@ Projects
 
     a {
       place-self: center;
+      color: var(--primary-400);
     }
 
     small {
@@ -90,6 +91,6 @@ Projects
 
   a {
     text-decoration: none;
-    color: antiquewhite;
+    color: var(--text-light-primary);
   }
 }

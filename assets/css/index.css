@@ -67,11 +67,30 @@ Home Page
 .latest-section {
   display: grid;
   gap: 1rem;
+
+  .latest-photo {
+    max-height: 40rem;
+    margin: auto;
+
+    .gallery-item {
+      display: grid;
+      place-items: center;
+
+      img {
+        max-height: 40rem;
+      }
+    }
+  }
+
+  a {
+    color: var(--primary-400);
+    font-size: inherit;
+  }
 }
 
 .post-card {
   margin-bottom: 1rem;
-  border: #00dc82 2px dashed;
+  border: var(--primary-200) 2px dashed;
   border-radius: 5px;
   padding: 2rem;
 
@@ -80,7 +99,7 @@ Home Page
   }
 
   a {
-    color: orange;
+    color: var(--primary-400);
     font-family: "Noto Serif", sans-serif;
     font-size: 1rem;
     margin: auto;
@@ -129,7 +148,7 @@ Home Page
     display: grid;
 
     a {
-      color: darkolivegreen;
+      color: var(--primary-400);
       font-family: "Noto Serif", sans-serif;
       font-size: 1rem;
     }

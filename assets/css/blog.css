@@ -13,20 +13,20 @@ Blog
     width: 33ch;
     padding: 0.5rem;
     color: antiquewhite;
-    border: darkgreen 3px solid;
+    border: var(--primary-400) 3px solid;
     border-radius: 10px;
     background: transparent;
     align-self: center;
   }
   #search:focus {
     outline: none;
-    border: darkgreen 3px solid;
+    border: var(--primary-200) 3px solid;
   }
 }
 
 .post-card {
   margin-bottom: 1rem;
-  border: #00dc82 2px dashed;
+  border: var(--primary-200) 2px dashed;
   border-radius: 5px;
   padding: 2rem;
 
@@ -35,7 +35,7 @@ Blog
   }
 
   a {
-    color: orange;
+    color: var(--primary-400);
     font-family: "Noto Serif", sans-serif;
     font-size: 1rem;
     margin: auto;
@@ -84,7 +84,7 @@ Blog
     display: grid;
 
     a {
-      color: darkolivegreen;
+      color: var(--primary-400);
       font-family: "Noto Serif", sans-serif;
       font-size: 1rem;
     }

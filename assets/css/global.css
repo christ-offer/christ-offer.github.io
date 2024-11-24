@@ -178,7 +178,7 @@ body {
 
         a {
           text-decoration: none;
-          color: var(--text-light-primary);
+          color: var(--primary-400);
           transition: transform 0.2s ease;
           display: inline-block;
           position: relative;
