@@ -86,8 +86,9 @@
       </nav>
     </header>
     <main>
-      <div>
+      <div class="filter-container">
         <button
+          class="all-projects-filter"
           hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
           hx-target="#projects"
           hx-swap="innerHTML"
@@ -95,6 +96,7 @@
           All Projects
         </button>
         <button
+          class="work-projects-filter"
           hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_work_projects"
           hx-target="#projects"
           hx-swap="innerHTML"
@@ -102,6 +104,7 @@
           Work Projects
         </button>
         <button
+          class="personal-projects-filter"
           hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_personal_projects"
           hx-target="#projects"
           hx-swap="innerHTML"

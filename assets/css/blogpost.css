@@ -38,13 +38,17 @@ Blog
   h5 {
     margin-block-start: 0.8rem;
     margin-block-end: 0.4rem;
+    text-align: center;
   }
 
   img {
     margin: auto;
-    margin-block: 2rem;
     min-width: 50%;
     max-width: 70%;
+  }
+
+  .img-margin-block {
+    margin-block: 2rem;
   }
 
   p {
@@ -63,6 +67,8 @@ Blog
   small {
     color: gray;
     font-size: 0.8rem;
+    display: block;
+    text-align: center;
   }
 
   .body {

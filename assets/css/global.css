@@ -1,4 +1,57 @@
 /*
+Color Variables
+*/
+
+:root {
+  /* Core colors */
+  --primary: hsl(39, 100%, 50%);
+  --secondary: hsl(33, 100%, 50%);
+  --accent: hsl(34, 78%, 91%);
+
+  /* Color variations using opacity/lightness */
+  --primary-100: hsl(39, 100%, 90%);
+  --primary-200: hsl(39, 100%, 80%);
+  --primary-300: hsl(39, 100%, 70%);
+  --primary-400: hsl(39, 100%, 60%);
+  --primary-500: var(--primary);
+
+  --secondary-100: hsl(33, 100%, 90%);
+  --secondary-200: hsl(33, 100%, 80%);
+  --secondary-300: hsl(33, 100%, 70%);
+  --secondary-400: hsl(33, 100%, 60%);
+  --secondary-500: var(--secondary);
+
+  --accent-100: hsl(34, 78%, 90%);
+  --accent-200: hsl(34, 78%, 80%);
+  --accent-300: hsl(34, 78%, 70%);
+  --accent-400: hsl(34, 78%, 60%);
+  --accent-500: var(--accent);
+
+  /* Background colors */
+  --bg-primary: hsl(0, 0%, 10%); /* Main background */
+  --bg-secondary: hsl(0, 0%, 15%); /* Secondary background for contrast */
+
+  --bg-light-primary: hsl(0, 0%, 90%); /* Light background for contrast */
+  --bg-light-secondary: hsl(0, 0%, 95%); /* Light background for contrast */
+
+  /* Text colors */
+  --text-primary: hsl(34, 78%, 91%);
+  --text-secondary: hsl(0, 0%, 96%);
+
+  --text-light-primary: hsl(34, 78%, 91%);
+  --text-light-secondary: hsl(0, 0%, 96%);
+
+  /* Interactive elements */
+  --link: var(--primary);
+  --link-hover: var(--secondary);
+
+  /* Optional: semantic colors */
+  --success: hsl(120, 60%, 50%);
+  --warning: hsl(40, 100%, 50%);
+  --error: hsl(0, 100%, 50%);
+}
+
+/*
 Global Styles
 */
 * {
@@ -23,8 +76,8 @@ Global Styles
 }
 
 html {
-  background-color: #1a1a1a;
-  color: antiquewhite;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: "Noto Serif", sans-serif;
 }
 
@@ -125,7 +178,7 @@ body {
 
         a {
           text-decoration: none;
-          color: whitesmoke;
+          color: var(--text-light-primary);
           transition: transform 0.2s ease;
           display: inline-block;
           position: relative;
@@ -135,7 +188,7 @@ body {
           content: "";
           position: absolute;
           top: 1rem;
-          background-color: orange;
+          background-color: var(--primary);
           height: 40%;
           width: 60%;
           z-index: -1;
@@ -146,7 +199,7 @@ body {
         }
 
         .active-nav {
-          color: whitesmoke;
+          color: var(--text-light-primary);
         }
       }
     }
@@ -179,11 +232,16 @@ body {
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: #1a1a1a;
+    background-color: var(--bg-primary);
 
     a {
       text-decoration: none;
-      color: whitesmoke;
+      color: var(--text-light-primary);
     }
   }
+}
+
+.pagination {
+  text-align: center;
+  color: var(--text-light-primary);
 }
