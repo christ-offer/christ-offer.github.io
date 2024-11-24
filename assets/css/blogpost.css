@@ -43,6 +43,8 @@ Blog
   img {
     margin: auto;
     margin-block: 2rem;
+    min-width: 50%;
+    max-width: 70%;
   }
 
   small {
