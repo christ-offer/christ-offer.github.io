@@ -47,6 +47,11 @@ Blog
     max-width: 70%;
   }
 
+  p {
+    margin-block-start: 0.5rem;
+    margin-block-end: 0.5rem;
+  }
+
   small {
     color: gray;
     font-size: 0.8rem;
