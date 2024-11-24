@@ -14,6 +14,10 @@ Color Variables
   --primary-300: hsl(39, 100%, 70%);
   --primary-400: hsl(39, 100%, 60%);
   --primary-500: var(--primary);
+  --primary-600: hsl(39, 100%, 50%);
+  --primary-700: hsl(39, 100%, 40%);
+  --primary-800: hsl(39, 100%, 30%);
+  --primary-900: hsl(39, 100%, 20%);
 
   --secondary-100: hsl(33, 100%, 90%);
   --secondary-200: hsl(33, 100%, 80%);
