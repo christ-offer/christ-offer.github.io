@@ -166,6 +166,13 @@ body {
 
       svg {
         height: 15rem;
+        text {
+          fill: var(--primary-400);
+        }
+
+        a {
+          font-size: 1rem;
+        }
       }
     }
 
