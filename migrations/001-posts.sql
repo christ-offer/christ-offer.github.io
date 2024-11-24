@@ -40,31 +40,6 @@ create trigger update_post_url
 create or replace function public.html_post(public.posts) returns text as $$
   select format($html$
     <div class="post" id="post-%1$s">
-      <a href="post.html?title=%4$s">
-        <article>
-          <h2>%2$s</h2>
-          <div class="body">
-            <p>
-              %3$s
-            </p>
-          </div>
-          <small>Posted: %5$s</small>
-        </article>
-      </a>
-    </div>
-    $html$,
-    $1.id,
-    public.sanitize_html($1.title),
-    $1.body,
-    public.sanitize_html($1.post_url),
-    to_char($1.created_at, 'Month DD, YYYY')
-  );
-$$ language sql stable;
-
--- Individual post HTML formatter
-create or replace function public.html_post_no_link(public.posts) returns text as $$
-  select format($html$
-    <div class="post" id="post-%1$s">
       <article>
         <h2>%2$s</h2>
         <div class="body">
@@ -84,6 +59,31 @@ create or replace function public.html_post_no_link(public.posts) returns text a
   );
 $$ language sql stable;
 
+
+-- Individual post card HTML formatter (should only have title, summary and post_url for a link)
+create or replace function public.html_post_card(public.posts) returns text as $$
+  select format($html$
+    <div class="post-card" id="post-%1$s">
+      <article>
+        <h2>%2$s</h2>
+        <div class="body">
+          <p>
+            %3$s
+          </p>
+        </div>
+        <a href="post.html?title=%4$s">Read more</a>
+        <small>Posted: %5$s</small>
+      </article>
+    </div>
+    $html$,
+    $1.id,
+    public.sanitize_html($1.title),
+    public.sanitize_html($1.summary),
+    public.sanitize_html($1.post_url),
+    to_char($1.created_at, 'Month DD, YYYY')
+  );
+$$ language sql stable;
+
 -- Function to get latest post from the database
 create or replace function public.get_latest_post() returns "text/html" as $$
 declare
@@ -93,7 +93,7 @@ begin
   if post is null then
     return '<div class="no-posts">No posts</div>';
   end if;
-  return public.html_post(post);
+  return public.html_post_card(post);
 end;
 $$ language plpgsql;
 
@@ -117,7 +117,7 @@ begin
     return '<div class="no-posts">No posts</div>';
   end if;
 
-  return public.html_post_no_link(post);
+  return public.html_post(post);
 end;
 $$ language plpgsql;
 
@@ -163,7 +163,7 @@ begin
             -- Posts content
             (
               select coalesce(
-                string_agg(public.html_post(p), '' order by p.created_at desc),
+                string_agg(public.html_post_card(p), '' order by p.created_at desc),
                 '<div class="no-posts">No posts found on this page.</div>'
               )
               from (

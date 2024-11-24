@@ -37,20 +37,26 @@ object svg {
   }
 }
 
-.post {
+.post-card {
   margin-bottom: 1rem;
   border: #00dc82 2px dashed;
   border-radius: 5px;
   padding: 2rem;
 
-  .center-text {
-    text-align: center;
+  article {
+    display: grid;
   }
 
   a {
-    color: antiquewhite;
+    color: orange;
     font-family: "Noto Serif", sans-serif;
     font-size: 1rem;
+    margin: auto;
+    margin-block: 2rem;
+  }
+
+  .center-text {
+    text-align: center;
   }
 
   h2 {
@@ -83,11 +89,18 @@ object svg {
   small {
     color: gray;
     font-size: 0.8rem;
+    text-align: right;
   }
 
   .body {
     margin-top: 0.5rem;
     display: grid;
+
+    a {
+      color: darkolivegreen;
+      font-family: "Noto Serif", sans-serif;
+      font-size: 1rem;
+    }
   }
 }
 
