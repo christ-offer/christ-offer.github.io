@@ -61,7 +61,7 @@ $$ language plpgsql;
 -- Function to get photos with HTMX-specific pagination
 create or replace function public.get_photos_htmx(
   page_number integer default 1,
-  photos_per_page integer default 12
+  photos_per_page integer default 6
 ) returns "text/html" as $$
 declare
   total_photos integer;
