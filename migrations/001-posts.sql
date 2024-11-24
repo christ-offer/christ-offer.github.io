@@ -99,7 +99,7 @@ $$ language plpgsql;
 -- Function to get posts with HTMX-specific pagination
 create or replace function public.get_posts_htmx(
   page_number integer default 1,
-  posts_per_page integer default 3
+  posts_per_page integer default 5
 ) returns "text/html" as $$
 declare
   total_posts integer;
@@ -144,6 +144,90 @@ begin
               format(
                 '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx?page_number=%s" hx-target=".posts" class="next-page">Next &raquo;</button>',
                 page_number + 1
+              )
+            else '' end,
+            format(
+              '<span class="page-info">Page %s of %s</span>',
+              page_number,
+              total_pages
+            ),
+            '</div>'
+          )
+      end
+  );
+end;
+$$ language plpgsql;
+
+-- Function to get posts based on search query (if no query - returns all posts)
+create or replace function public.search_posts(
+  search_query text default '',
+  page_number integer default 1,
+  posts_per_page integer default 5
+) returns "text/html" as $$
+declare
+  search_query_sanitized text;
+  total_matching_posts integer;
+  total_pages integer;
+  search_query_param text;
+begin
+  -- Sanitize the search query
+  search_query_sanitized := public.sanitize_input(search_query);
+
+  -- Prepare search query parameter for URLs
+  search_query_param := case
+    when search_query_sanitized is not null and search_query_sanitized != ''
+    then '&search_query=' || search_query_sanitized
+    else ''
+  end;
+
+  -- Get total matching posts
+  select count(*) into total_matching_posts
+  from public.posts
+  where search_query_sanitized is null
+    or search_query_sanitized = ''
+    or title ilike '%' || search_query_sanitized || '%';
+
+  -- Calculate total pages
+  total_pages := ceil(total_matching_posts::float / posts_per_page);
+
+  return (
+    select
+      case
+        when total_matching_posts = 0 then
+          '<div class="no-posts">No posts found matching your search.</div>'
+        else
+          concat(
+            -- Posts content
+            (
+              select coalesce(
+                string_agg(public.html_post(p), '' order by p.created_at desc),
+                '<div class="no-posts">No posts found on this page.</div>'
+              )
+              from (
+                select *
+                from public.posts
+                where search_query_sanitized is null
+                  or search_query_sanitized = ''
+                  or title ilike '%' || search_query_sanitized || '%'
+                order by created_at desc
+                limit posts_per_page
+                offset ((page_number - 1) * posts_per_page)
+              ) p
+            ),
+            -- Pagination controls
+            '<div class="pagination">',
+            case when page_number > 1 then
+              format(
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts?page_number=%s%s" hx-target=".posts" class="prev-page">&laquo; Previous</button>',
+                page_number - 1,
+                search_query_param
+              )
+            else '' end,
+            case when page_number < total_pages then
+              format(
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts?page_number=%s%s" hx-target=".posts" class="next-page">Next &raquo;</button>',
+                page_number + 1,
+                search_query_param
               )
             else '' end,
             format(

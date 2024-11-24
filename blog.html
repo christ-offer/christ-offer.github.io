@@ -52,9 +52,19 @@
     <main>
       <section class="posts-section">
         <h3>Musings:</h3>
+        <input
+          type="text"
+          id="search"
+          name="search_query"
+          placeholder="Search"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts"
+          hx-target=".posts"
+          hx-swap="innerHTML"
+          hx-trigger="keyup changed delay:500ms, search_query"
+        />
         <div
           class="posts"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_posts_htmx"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts"
           hx-swap="innerHTML"
           hx-trigger="load"
         >
