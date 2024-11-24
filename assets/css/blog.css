@@ -2,18 +2,6 @@
 Blog
 */
 
-.object-container {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  overflow: hidden;
-}
-object svg {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
 .blog-search-container {
   justify-items: center;
   margin-block: 2rem;
