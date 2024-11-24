@@ -44,7 +44,9 @@ create or replace function public.html_post(public.posts) returns text as $$
         <article>
           <h2>%2$s</h2>
           <div class="body">
-            %3$s
+            <p>
+              %3$s
+            </p>
           </div>
           <small>Posted: %5$s</small>
         </article>
@@ -53,7 +55,30 @@ create or replace function public.html_post(public.posts) returns text as $$
     $html$,
     $1.id,
     public.sanitize_html($1.title),
-    public.sanitize_html($1.body),
+    $1.body,
+    public.sanitize_html($1.post_url),
+    to_char($1.created_at, 'Month DD, YYYY')
+  );
+$$ language sql stable;
+
+-- Individual post HTML formatter
+create or replace function public.html_post_no_link(public.posts) returns text as $$
+  select format($html$
+    <div class="post" id="post-%1$s">
+      <article>
+        <h2>%2$s</h2>
+        <div class="body">
+          <p>
+            %3$s
+          </p>
+        </div>
+        <small>Posted: %5$s</small>
+      </article>
+    </div>
+    $html$,
+    $1.id,
+    public.sanitize_html($1.title),
+    $1.body,
     public.sanitize_html($1.post_url),
     to_char($1.created_at, 'Month DD, YYYY')
   );
@@ -92,7 +117,7 @@ begin
     return '<div class="no-posts">No posts</div>';
   end if;
 
-  return public.html_post(post);
+  return public.html_post_no_link(post);
 end;
 $$ language plpgsql;
 

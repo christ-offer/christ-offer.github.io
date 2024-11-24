@@ -87,17 +87,22 @@
     </header>
     <main>
       <section class="posts-section">
-        <h3>Musings:</h3>
-        <input
-          type="text"
-          id="search"
-          name="search_query"
-          placeholder="Search"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts"
-          hx-target=".posts"
-          hx-swap="innerHTML"
-          hx-trigger="keyup changed delay:500ms, search_query"
-        />
+        <div class="blog-search-container">
+          <h3 class="blog-page-title">
+            A collection of Rants, Ramblings and Musings:
+          </h3>
+          <input
+            type="text"
+            id="search"
+            name="search_query"
+            placeholder="Search"
+            hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts"
+            hx-target=".posts"
+            hx-swap="innerHTML"
+            hx-trigger="keyup changed delay:500ms, search_query"
+          />
+        </div>
+
         <div
           class="posts"
           hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/search_posts"
@@ -117,8 +122,4 @@
       </a>
     </footer>
   </body>
-  <script>
-    const queryString = window.location.search;
-    console.log(queryString);
-  </script>
 </html>

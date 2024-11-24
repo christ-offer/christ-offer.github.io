@@ -11,7 +11,7 @@
     ></script>
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/global.css" />
-    <link rel="stylesheet" href="assets/css/blog.css" />
+    <link rel="stylesheet" href="assets/css/blogpost.css" />
     <script type="speculationrules">
       {
         "prerender": [
@@ -34,8 +34,44 @@
     hx-headers='{"Accept": "text/html", "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY"}'
   >
     <header>
-      <h1>Hello! Hola! Bonjour!</h1>
-      <div class="hero-image"></div>
+      <div class="ascii-logo">
+        <svg viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+          <!-- Monitor frame -->
+          <rect
+            x="10"
+            y="10"
+            width="200"
+            height="140"
+            rx="8"
+            fill="#2a2a2a"
+            stroke="#3a3a3a"
+            stroke-width="4"
+          />
+
+          <!-- Screen -->
+          <rect x="20" y="20" width="180" height="120" rx="4" fill="#1a1a1a" />
+
+          <!-- Terminal content -->
+          <g fill="#33ff66">
+            <!-- Command prompt symbols -->
+            <text x="35" y="50" font-family="monospace" font-size="14">
+              post@chris$
+            </text>
+
+            <!-- Blinking cursor -->
+            <rect x="140" y="38" width="8" height="14">
+              <animate
+                attributeName="opacity"
+                values="0;1;1;0"
+                dur="1.5s"
+                repeatCount="indefinite"
+              />
+            </rect>
+          </g>
+          <!-- Stand -->
+          <path d="M80 150 L140 150 L130 160 L90 160 Z" fill="#2a2a2a" />
+        </svg>
+      </div>
       <nav>
         <menu>
           <li>

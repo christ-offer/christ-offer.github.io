@@ -2,41 +2,6 @@
 Blog
 */
 
-.object-container {
-  display: flex;
-  justify-content: center;
-  max-width: 100%;
-  overflow: hidden;
-}
-object svg {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
-.blog-search-container {
-  justify-items: center;
-  margin-block: 2rem;
-
-  .blog-page-title {
-    margin-bottom: 0.5rem;
-  }
-
-  #search {
-    width: 33ch;
-    padding: 0.5rem;
-    color: antiquewhite;
-    border: darkgreen 3px solid;
-    border-radius: 10px;
-    background: transparent;
-    align-self: center;
-  }
-  #search:focus {
-    outline: none;
-    border: darkgreen 3px solid;
-  }
-}
-
 .post {
   margin-bottom: 1rem;
   border: #00dc82 2px dashed;
@@ -48,7 +13,7 @@ object svg {
   }
 
   a {
-    color: antiquewhite;
+    color: cornflowerblue;
     font-family: "Noto Serif", sans-serif;
     font-size: 1rem;
   }
