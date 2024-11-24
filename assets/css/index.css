@@ -1,6 +1,7 @@
 /*
 Home Page
 */
+
 .intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -60,6 +61,11 @@ Home Page
   .supabase-link:hover {
     text-shadow: 0 0 2px currentColor;
   }
+}
+
+.latest-section {
+  display: grid;
+  gap: 1rem;
 }
 
 .post {

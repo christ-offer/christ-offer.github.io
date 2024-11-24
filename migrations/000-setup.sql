@@ -13,7 +13,12 @@ $$ language sql;
 
 create or replace function public.sanitize_input(input text) returns text as $$
 begin
-  -- Replace anything that's not alphanumeric or hyphen with empty string
-  return regexp_replace(input, '[^a-zA-Z0-9\-:]', '', 'g');
+  return regexp_replace(
+    regexp_replace(
+      regexp_replace(input, '\s+', '-', 'g'),  -- Convert spaces to hyphens
+      '[^a-zA-Z0-9\-:]', '', 'g'               -- Remove other non-alphanumeric characters except hyphens and colons
+    ),
+    '\-+', '-', 'g'                            -- Replace multiple consecutive hyphens with single hyphen
+  );
 end;
 $$ language plpgsql;

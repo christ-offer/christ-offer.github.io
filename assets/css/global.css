@@ -38,6 +38,16 @@ body {
     text-align: center;
     grid-column: 2;
 
+    .ascii-logo {
+      /* Preserve whitespace and prevent text wrapping */
+
+      padding: 1rem;
+
+      svg {
+        height: 10rem;
+      }
+    }
+
     menu {
       list-style: none;
       display: flex;
