@@ -2,6 +2,10 @@
 Blog
 */
 
+.posts-section {
+  margin-block: 4rem;
+}
+
 .post {
   margin-bottom: 1rem;
   border: var(--primary-200) 2px dashed;
