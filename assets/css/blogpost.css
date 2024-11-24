@@ -4,7 +4,7 @@ Blog
 
 .post {
   margin-bottom: 1rem;
-  border: #00dc82 2px dashed;
+  border: var(--primary-200) 2px dashed;
   border-radius: 5px;
   padding: 2rem;
 
@@ -13,7 +13,7 @@ Blog
   }
 
   a {
-    color: cornflowerblue;
+    color: var(--primary-400);
     font-family: "Noto Serif", sans-serif;
     font-size: 1rem;
   }
