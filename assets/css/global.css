@@ -156,14 +156,19 @@ body {
     );
 
   header {
+    margin-top: 2rem;
     text-align: center;
     grid-column: 2;
 
     .ascii-logo {
-      padding: 1rem;
+      width: 100%;
+      max-width: 100%; /* Adjust this value based on your needs */
+      margin: 0 auto;
 
       svg {
-        height: 15rem;
+        width: 100%;
+        height: auto;
+        max-height: 15rem;
 
         text {
           fill: var(--primary-400);

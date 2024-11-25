@@ -31,7 +31,13 @@
   >
     <header>
       <div class="ascii-logo">
-        <svg viewBox="-200 0 620 180" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          class="responsive-svg"
+          viewBox="-200 0 620 180"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <!-- All your existing SVG content stays exactly the same -->
           <!-- Monitor frame -->
           <rect
             x="-10"
@@ -104,25 +110,15 @@
                 </text>
               </a>
             </g>
-
-            <!-- Blinking cursor -->
-            <!-- <rect x="35" y="135" width="8" height="14">
-              <animate
-                attributeName="opacity"
-                values="0;1;1;0"
-                dur="1.5s"
-                repeatCount="indefinite"
-              />
-            </rect> -->
           </g>
 
           <!-- Stand -->
           <path d="M80 150 L140 150 L130 160 L90 160 Z" fill="#2a2a2a" />
 
           <!-- Extended desk plate -->
-          <rect x="-200" y="160" width="620" height="20" fill="#8B4513" />
+          <rect x="-250" y="160" width="800" height="20" fill="#8B4513" />
 
-          <!-- Coffee Cup -->
+          <!-- Coffee Cup with animations stays the same -->
           <g transform="translate(250, 159)">
             <!-- Cup body -->
             <path
@@ -143,8 +139,8 @@
                 <animate
                   attributeName="d"
                   values="M8,-30 Q13,-35 8,-40;
-                                 M8,-30 Q3,-35 8,-40;
-                                 M8,-30 Q13,-35 8,-40"
+                         M8,-30 Q3,-35 8,-40;
+                         M8,-30 Q13,-35 8,-40"
                   dur="3s"
                   repeatCount="indefinite"
                 />
@@ -159,8 +155,8 @@
                 <animate
                   attributeName="d"
                   values="M15,-30 Q20,-38 15,-45;
-                                 M15,-30 Q10,-38 15,-45;
-                                 M15,-30 Q20,-38 15,-45"
+                         M15,-30 Q10,-38 15,-45;
+                         M15,-30 Q20,-38 15,-45"
                   dur="3s"
                   begin="1s"
                   repeatCount="indefinite"
@@ -177,8 +173,8 @@
                 <animate
                   attributeName="d"
                   values="M20,-30 Q25,-36 20,-42;
-                                 M20,-30 Q15,-36 20,-42;
-                                 M20,-30 Q25,-36 20,-42"
+                         M20,-30 Q15,-36 20,-42;
+                         M20,-30 Q25,-36 20,-42"
                   dur="3s"
                   begin="2s"
                   repeatCount="indefinite"
