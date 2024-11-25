@@ -160,12 +160,11 @@ body {
     grid-column: 2;
 
     .ascii-logo {
-      /* Preserve whitespace and prevent text wrapping */
-
       padding: 1rem;
 
       svg {
         height: 15rem;
+
         text {
           fill: var(--primary-400);
         }
