@@ -121,6 +121,30 @@ begin
 end;
 $$ language plpgsql;
 
+-- Function get post card based on title
+create or replace function public.get_post_card_by_title(input_title text) returns "text/html" as $$
+declare
+  post public.posts;
+  sanitized_input text;
+begin
+  -- Sanitize the input title
+  sanitized_input := public.sanitize_input(input_title);
+
+  -- If sanitized title is empty or null, return no posts
+  if sanitized_input is null or sanitized_input = '' then
+    return '<div class="no-posts">No posts</div>';
+  end if;
+
+  select * into post from public.posts where post_url = sanitized_input;
+
+  if post is null then
+    return '<div class="no-posts">No posts</div>';
+  end if;
+
+  return public.html_post_card(post);
+end;
+$$ language plpgsql;
+
 -- Function to get posts based on search query (if no query - returns all posts)
 create or replace function public.search_posts(
   search_query text default '',
