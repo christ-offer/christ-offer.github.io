@@ -3,6 +3,7 @@ Color Variables
 */
 
 :root {
+  font-size: clamp(14px, 2vw, 18px);
   /* Core colors */
   --primary: hsl(39, 100%, 50%);
   --secondary: hsl(33, 100%, 50%);

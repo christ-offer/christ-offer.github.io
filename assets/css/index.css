@@ -7,6 +7,7 @@ Home Page
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-block: 4rem;
+  margin-top: 2rem;
   background-image: linear-gradient(
       to right,
       rgba(0, 0, 0, 0.7),
@@ -78,6 +79,7 @@ Home Page
     grid-template-columns: 1fr 1fr;
     background-position: right -12rem top;
     background-size: 120%;
+    margin-block: 4rem;
   }
 }
 .latest-section {

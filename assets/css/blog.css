@@ -4,6 +4,7 @@ Blog
 .blog-search-container {
   justify-items: center;
   margin-block: 2rem;
+  display: grid;
 
   .blog-page-title {
     margin-bottom: 0.5rem;
