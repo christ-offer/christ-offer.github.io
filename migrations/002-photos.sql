@@ -15,7 +15,7 @@ create policy "Photos can be read by anyone" on photos for select using (true);
 -- Individual photos HTML formatter
 create or replace function public.html_photo(public.photos) returns text as $$
   select format($html$
-    <article class="gallery-item" onclick="openModal(this)">
+    <article class="gallery-item fade-in" onclick="openModal(this)">
       <img src="%2$s" />
     </article>
     $html$,

@@ -287,3 +287,89 @@ body {
     grid-column: 1 / -1;
   }
 }
+
+/*
+Global effects and stuff
+*/
+
+/* First, wrap your text in a container with this class */
+.typing-effect {
+  width: fit-content;
+  /* Adjust width as needed, or use ch unit for monospace precision */
+
+  /* Hide overflow while typing */
+  overflow: hidden;
+
+  /* Create space for the cursor */
+  border-right: none;
+
+  /* The typing animation */
+  animation: typing 0.5s steps(50, end);
+
+  /* Preserve whitespace and prevent wrapping */
+  white-space: nowrap;
+}
+
+/* The typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The cursor blink animation */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #ffa500;
+  }
+}
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.fade-in:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.fade-in:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.fade-in:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.fade-in:nth-child(5) {
+  animation-delay: 1s;
+}
+.fade-in:nth-child(6) {
+  animation-delay: 1.2s;
+}
+.fade-in:nth-child(7) {
+  animation-delay: 1.4s;
+}
+.fade-in:nth-child(8) {
+  animation-delay: 1.6;
+}
+.fade-in:nth-child(9) {
+  animation-delay: 1.8;
+}

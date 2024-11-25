@@ -19,6 +19,11 @@ Home Page
 
   padding: 2rem;
 
+  .intro-heading {
+    color: var(--primary-300);
+    margin-block: 1rem;
+  }
+
   .intro-link {
     display: inline-block;
     padding-inline: 0.1rem;

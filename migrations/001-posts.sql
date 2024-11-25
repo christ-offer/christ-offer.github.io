@@ -63,7 +63,7 @@ $$ language sql stable;
 -- Individual post card HTML formatter (should only have title, summary and post_url for a link)
 create or replace function public.html_post_card(public.posts) returns text as $$
   select format($html$
-    <div class="post-card" id="post-%1$s">
+    <div class="post-card fade-in" id="post-%1$s">
       <article>
         <h2>%2$s</h2>
         <div class="body">
