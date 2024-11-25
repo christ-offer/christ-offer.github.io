@@ -39,7 +39,7 @@ create trigger update_post_url
 -- Individual post HTML formatter
 create or replace function public.html_post(public.posts) returns text as $$
   select format($html$
-    <div class="post" id="post-%1$s">
+    <div class="fade-in post" id="post-%1$s">
       <article>
         <h2>%2$s</h2>
         <div class="body">
