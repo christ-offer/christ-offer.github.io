@@ -19,7 +19,7 @@ create policy "Projects can be read by anyone" on projects for select using (tru
 -- Individual project HTML formatter
 create or replace function public.html_project(public.projects) returns text as $$
   select format($html$
-    <article class="project-item">
+    <article class="project-item fade-in">
     <div class="project-header" style="background-image: url('%6$s')">
       <h2>%2$s</h2>
     </div>
