@@ -39,46 +39,30 @@ create or replace function public.html_work_project(public.projects) returns tex
   );
 $$ language sql stable;
 
--- Individual project HTML formatter for personal projects
-create or replace function public.html_personal_project(public.projects) returns text as $$
-  select format($html$
-    <article class="project-item fade-in personal-project">
-    <div class="project-header" style="background-image: url('%6$s')">
-      <h2>%2$s</h2>
-    </div>
-      <div class="project-content">
-        %3$s
-      </div>
-      <a href="%5$s" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
-      <small>Posted: %4$s</small>
-    </article>
-    $html$,
-    $1.id,
-    public.sanitize_html($1.title),
-    public.sanitize_html($1.description),
-    to_char($1.created_at, 'Month DD, YYYY'),
-    coalesce($1.url, '#'),
-    coalesce($1.photo_url, '#')
-  );
-$$ language sql stable;
-
-
+-- Individual project HTML formatter
 create or replace function public.get_projects_htmx(
   page_number integer default 1,
   projects_per_page integer default 2,
-  project_type text default null  -- Add new parameter for filtering by type
+  project_type text default null
 ) returns "text/html" as $$
 declare
   total_projects integer;
   total_pages integer;
+  pagination_url text;
 begin
   -- Get total number of projects (filtered by type if specified)
   select count(*) into total_projects
   from public.projects
-  where (project_type is null or type = project_type); -- Add type filter
+  where (project_type is null or type = project_type);
 
   -- Calculate total pages
   total_pages := ceil(total_projects::float / projects_per_page);
+
+  -- Construct base pagination URL based on whether project_type is provided
+  pagination_url := 'https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s';
+  if project_type is not null then
+    pagination_url := pagination_url || '&project_type=' || project_type;
+  end if;
 
   return (
     select
@@ -101,7 +85,7 @@ begin
               from (
                 select *
                 from public.projects
-                where (project_type is null or type = project_type) -- Add type filter
+                where (project_type is null or type = project_type)
                 order by created_at desc
                 limit projects_per_page
                 offset ((page_number - 1) * projects_per_page)
@@ -111,16 +95,14 @@ begin
             '<div class="pagination" id="pagination" hx-swap-oob="true">',
             case when page_number > 1 then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s&project_type=%s" hx-target=".projects" class="prev-page">&laquo; Previous</button>',
-                page_number - 1,
-                coalesce(project_type, '')
+                '<button hx-get="' || pagination_url || '" hx-target=".projects" class="prev-page">&laquo; Previous</button>',
+                page_number - 1
               )
             else '' end,
             case when page_number < total_pages then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s&project_type=%s" hx-target=".projects" class="next-page">Next &raquo;</button>',
-                page_number + 1,
-                coalesce(project_type, '')
+                '<button hx-get="' || pagination_url || '" hx-target=".projects" class="next-page">Next &raquo;</button>',
+                page_number + 1
               )
             else '' end,
             format(
