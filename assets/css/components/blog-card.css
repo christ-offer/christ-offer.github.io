@@ -53,6 +53,13 @@
     text-align: right;
   }
 
+  .read-time {
+    color: gray;
+    font-size: 0.8rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
   .body {
     margin-top: 0.5rem;
     display: grid;

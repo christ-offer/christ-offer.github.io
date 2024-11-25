@@ -3,7 +3,8 @@ create table if not exists public.posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   subtitle text not null,
-  summary text not null,
+  summary text,
+  reading_time integer,
   body text not null,
   post_url text,
   created_at timestamptz not null default now()
@@ -36,6 +37,42 @@ create trigger update_post_url
   execute procedure public.create_post_url();
 
 
+  -- Function to calculate reading time (returns minutes)
+  create or replace function public.calculate_reading_time(content text)
+  returns integer as $$
+  declare
+      words_per_minute constant integer := 200; -- Average reading speed
+      word_count integer;
+  begin
+      -- Count words by splitting on whitespace
+      word_count := array_length(regexp_split_to_array(content, '\s+'), 1);
+
+      -- Return reading time rounded up to the nearest minute
+      -- Adding words_per_minute - 1 to ensure rounding up
+      return ceil(word_count::float / words_per_minute);
+  end;
+  $$ language plpgsql immutable;
+
+  -- Trigger function to update reading_time
+  create or replace function public.update_reading_time()
+  returns trigger as $$
+  begin
+      -- Calculate reading time based on title, subtitle, and body
+      new.reading_time := public.calculate_reading_time(
+          concat_ws(' ', new.title, new.subtitle, new.body)
+      );
+      return new;
+  end;
+  $$ language plpgsql;
+
+  -- Create trigger
+  create trigger update_post_reading_time
+      before insert or update of title, subtitle, body
+      on public.posts
+      for each row
+      execute function public.update_reading_time();
+
+
 -- Individual post HTML formatter
 create or replace function public.html_post(public.posts) returns text as $$
   select format($html$
@@ -66,13 +103,14 @@ create or replace function public.html_post_card(public.posts) returns text as $
     <div class="post-card fade-in" id="post-%1$s">
       <article>
         <h2>%2$s</h2>
+        <small class="read-time">• %6$s min read •</small>
         <div class="body">
           <p>
             %3$s
           </p>
         </div>
         <a href="post.html?title=%4$s">Read more</a>
-        <small>Posted: %5$s</small>
+        <small class="posted-on">Posted: %5$s</small>
       </article>
     </div>
     $html$,
@@ -80,7 +118,8 @@ create or replace function public.html_post_card(public.posts) returns text as $
     public.sanitize_html($1.title),
     public.sanitize_html($1.summary),
     public.sanitize_html($1.post_url),
-    to_char($1.created_at, 'Month DD, YYYY')
+    to_char($1.created_at, 'Month DD, YYYY'),
+    $1.reading_time
   );
 $$ language sql stable;
 
