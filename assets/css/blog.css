@@ -1,6 +1,10 @@
 /*
 Blog
 */
+
+@import url("components/button.css");
+@import url("components/blog-card.css");
+
 .blog-search-container {
   justify-items: center;
   margin-block: 2rem;
@@ -22,73 +26,6 @@ Blog
   #search:focus {
     outline: none;
     border: var(--primary-200) 3px solid;
-  }
-}
-
-.post-card {
-  margin-bottom: 1rem;
-  border: var(--primary-200) 2px dashed;
-  border-radius: 5px;
-  padding: 2rem;
-
-  article {
-    display: grid;
-  }
-
-  a {
-    color: var(--primary-400);
-    font-family: "Noto Serif", sans-serif;
-    font-size: 1rem;
-    margin: auto;
-    margin-block: 2rem;
-  }
-
-  .center-text {
-    text-align: center;
-  }
-
-  h2 {
-    max-width: 25ch;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 0.5rem;
-  }
-
-  h3 {
-    margin-block-start: 1rem;
-    margin-block-end: 0.5rem;
-  }
-
-  h4 {
-    margin-block-start: 1rem;
-    margin-block-end: 0.5rem;
-  }
-
-  h5 {
-    margin-block-start: 0.8rem;
-    margin-block-end: 0.4rem;
-  }
-
-  img {
-    margin: auto;
-    margin-block: 2rem;
-  }
-
-  small {
-    color: gray;
-    font-size: 0.8rem;
-    text-align: right;
-  }
-
-  .body {
-    margin-top: 0.5rem;
-    display: grid;
-
-    a {
-      color: var(--primary-400);
-      font-family: "Noto Serif", sans-serif;
-      font-size: 1rem;
-    }
   }
 }
 

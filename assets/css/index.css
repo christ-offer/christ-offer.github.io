@@ -2,6 +2,9 @@
 Home Page
 */
 
+@import url("components/button.css");
+@import url("components/blog-card.css");
+
 .intro {
   display: grid;
   grid-template-columns: 1fr;
@@ -14,9 +17,7 @@ Home Page
       rgba(0, 0, 0, 0.3)
     ),
     url("../images/self_portrait.webp");
-
   background-size: cover;
-
   padding: 2rem;
 
   .intro-heading {
@@ -31,54 +32,8 @@ Home Page
     font-weight: 600;
     transition: transform 0.2s ease;
   }
-  .vue-link {
-    color: #42b883;
-  }
-  .nuxt-link {
-    color: #00dc82;
-  }
-  .node-link {
-    color: #339933;
-  }
-  .ts-link {
-    color: #3178c6;
-  }
-  .pg-link {
-    color: #336791;
-  }
-  .supabase-link {
-    color: #3ecf8e;
-  }
-  .python-link {
-    color: #3572a5;
-  }
-  .deno-link {
-    color: #2b7489;
-  }
-  .htmx-link {
-    color: #8a2be2;
-  }
-  .aws-link {
-    color: #ff9900;
-  }
-  .shopify-link {
-    color: #96bf48;
-  }
-
-  .vue-link:hover,
-  .nuxt-link:hover,
-  .node-link:hover,
-  .ts-link:hover,
-  .pg-link:hover,
-  .python-link:hover,
-  .deno-link:hover,
-  .htmx-link:hover,
-  .aws-link:hover,
-  .shopify-link:hover,
-  .supabase-link:hover {
-    text-shadow: 0 0 2px currentColor;
-  }
 }
+
 @media screen and (min-width: 750px) {
   .intro {
     grid-template-columns: 1fr 1fr;
@@ -87,93 +42,8 @@ Home Page
     margin-block: 4rem;
   }
 }
+
 .latest-section {
   display: grid;
   gap: 1rem;
-
-  .latest-photo {
-    max-height: 40rem;
-    margin: auto;
-
-    .gallery-item {
-      display: grid;
-      place-items: center;
-
-      img {
-        max-height: 40rem;
-      }
-    }
-  }
-
-  a {
-    color: var(--primary-400);
-    font-size: inherit;
-  }
-}
-
-.post-card {
-  margin-bottom: 1rem;
-  border: var(--primary-200) 2px dashed;
-  border-radius: 5px;
-  padding: 2rem;
-
-  article {
-    display: grid;
-  }
-
-  a {
-    color: var(--primary-400);
-    font-family: "Noto Serif", sans-serif;
-    font-size: 1rem;
-    margin: auto;
-    margin-block: 2rem;
-  }
-
-  .center-text {
-    text-align: center;
-  }
-
-  h2 {
-    max-width: 25ch;
-    text-align: center;
-    margin: auto;
-    margin-bottom: 0.5rem;
-  }
-
-  h3 {
-    margin-block-start: 1rem;
-    margin-block-end: 0.5rem;
-  }
-
-  h4 {
-    margin-block-start: 1rem;
-    margin-block-end: 0.5rem;
-  }
-
-  h5 {
-    margin-block-start: 0.8rem;
-    margin-block-end: 0.4rem;
-  }
-
-  img {
-    margin: auto;
-    margin-block: 2rem;
-  }
-
-  small {
-    color: gray;
-    font-size: 0.8rem;
-    text-align: right;
-  }
-
-  .body {
-    margin-top: 0.5rem;
-    display: grid;
-
-    a {
-      color: var(--primary-400);
-      font-family: "Noto Serif", sans-serif;
-      font-size: 1rem;
-    }
-  }
 }

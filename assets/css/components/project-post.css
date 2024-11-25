@@ -1,0 +1,52 @@
+.project-item {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-bottom: 3rem;
+
+  .project-header {
+    height: 20rem;
+    background-size: cover;
+    display: grid;
+    position: relative;
+    h2 {
+      color: var(--text-primary);
+      font-size: 2rem;
+      margin-block: 1rem;
+      margin-right: 2rem;
+      place-self: end end;
+      z-index: 1;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .project-content {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  a {
+    place-self: center;
+    color: var(--primary-400);
+    font-size: 2rem;
+  }
+
+  small {
+    place-self: end;
+  }
+
+  img {
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+}
