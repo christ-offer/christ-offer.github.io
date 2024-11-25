@@ -368,8 +368,41 @@ Global effects and stuff
   animation-delay: 1.4s;
 }
 .fade-in:nth-child(8) {
-  animation-delay: 1.6;
+  animation-delay: 1.6s;
 }
 .fade-in:nth-child(9) {
-  animation-delay: 1.8;
+  animation-delay: 1.8s;
+}
+.fade-in:nth-child(10) {
+  animation-delay: 2s;
+}
+.fade-in:nth-child(11) {
+  animation-delay: 2.2s;
+}
+.fade-in:nth-child(12) {
+  animation-delay: 2.4s;
+}
+.fade-in:nth-child(13) {
+  animation-delay: 2.6s;
+}
+.fade-in:nth-child(14) {
+  animation-delay: 2.8s;
+}
+.fade-in:nth-child(15) {
+  animation-delay: 3s;
+}
+.fade-in:nth-child(16) {
+  animation-delay: 3.2s;
+}
+.fade-in:nth-child(17) {
+  animation-delay: 3.4s;
+}
+.fade-in:nth-child(18) {
+  animation-delay: 3.6s;
+}
+.fade-in:nth-child(19) {
+  animation-delay: 3.8s;
+}
+.fade-in:nth-child(20) {
+  animation-delay: 4s;
 }
