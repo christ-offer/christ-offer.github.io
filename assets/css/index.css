@@ -4,7 +4,7 @@ Home Page
 
 .intro {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
   margin-block: 4rem;
   background-image: linear-gradient(
@@ -13,8 +13,9 @@ Home Page
       rgba(0, 0, 0, 0.3)
     ),
     url("../images/self_portrait.webp");
+
   background-size: cover;
-  background-position: right -12rem top;
+
   padding: 2rem;
 
   .intro-link {
@@ -72,7 +73,13 @@ Home Page
     text-shadow: 0 0 2px currentColor;
   }
 }
-
+@media screen and (min-width: 750px) {
+  .intro {
+    grid-template-columns: 1fr 1fr;
+    background-position: right -12rem top;
+    background-size: 120%;
+  }
+}
 .latest-section {
   display: grid;
   gap: 1rem;
