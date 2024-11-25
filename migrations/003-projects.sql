@@ -26,7 +26,7 @@ create or replace function public.html_work_project(public.projects) returns tex
       <div class="project-content">
         %3$s
       </div>
-      <a href="%5$s" target="_blank">Check it out</a>
+      <a href="%5$s" target="_blank"><ion-icon name="globe-outline"></ion-icon></a>
       <small>Posted: %4$s</small>
     </article>
     $html$,
@@ -43,13 +43,13 @@ $$ language sql stable;
 create or replace function public.html_personal_project(public.projects) returns text as $$
   select format($html$
     <article class="project-item fade-in personal-project">
-    <div class="project-header">
+    <div class="project-header" style="background-image: url('%6$s')">
       <h2>%2$s</h2>
     </div>
       <div class="project-content">
         %3$s
       </div>
-      <a href="%5$s" target="_blank">Check it out</a>
+      <a href="%5$s" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
       <small>Posted: %4$s</small>
     </article>
     $html$,
@@ -57,47 +57,25 @@ create or replace function public.html_personal_project(public.projects) returns
     public.sanitize_html($1.title),
     public.sanitize_html($1.description),
     to_char($1.created_at, 'Month DD, YYYY'),
-    coalesce($1.url, '#')
+    coalesce($1.url, '#'),
+    coalesce($1.photo_url, '#')
   );
 $$ language sql stable;
 
 
--- Function to get all projects as HTML
-create or replace function public.get_projects() returns "text/html" as $$
-  select coalesce(
-    string_agg(public.html_project(p), '' order by p.created_at desc),
-    '<div class="no-projects"><p>No projects available.</p></div>'
-  ) from projects p;
-$$ language sql;
-
--- Function to get all type work projects as HTML
-create or replace function public.get_work_projects() returns "text/html" as $$
-  select coalesce(
-    string_agg(public.html_project(p), '' order by p.created_at desc),
-    '<div class="no-projects"><p>No work projects available.</p></div>'
-  ) from projects p where p.type = 'work';
-$$ language sql;
-
--- Function to get all type personal projects as HTML
-create or replace function public.get_personal_projects() returns "text/html" as $$
-  select coalesce(
-    string_agg(public.html_project(p), '' order by p.created_at desc),
-    '<div class="no-projects"><p>No personal projects available.</p></div>'
-  ) from projects p where p.type = 'personal';
-$$ language sql;
-
-
--- Function to get projects with HTMX-specific pagination
 create or replace function public.get_projects_htmx(
   page_number integer default 1,
-  projects_per_page integer default 2
+  projects_per_page integer default 2,
+  project_type text default null  -- Add new parameter for filtering by type
 ) returns "text/html" as $$
 declare
   total_projects integer;
   total_pages integer;
 begin
-  -- Get total number of projects
-  select count(*) into total_projects from public.projects;
+  -- Get total number of projects (filtered by type if specified)
+  select count(*) into total_projects
+  from public.projects
+  where (project_type is null or type = project_type); -- Add type filter
 
   -- Calculate total pages
   total_pages := ceil(total_projects::float / projects_per_page);
@@ -123,6 +101,7 @@ begin
               from (
                 select *
                 from public.projects
+                where (project_type is null or type = project_type) -- Add type filter
                 order by created_at desc
                 limit projects_per_page
                 offset ((page_number - 1) * projects_per_page)
@@ -132,14 +111,16 @@ begin
             '<div class="pagination" id="pagination" hx-swap-oob="true">',
             case when page_number > 1 then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s" hx-target=".projects" class="prev-page">&laquo; Previous</button>',
-                page_number - 1
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s&project_type=%s" hx-target=".projects" class="prev-page">&laquo; Previous</button>',
+                page_number - 1,
+                coalesce(project_type, '')
               )
             else '' end,
             case when page_number < total_pages then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s" hx-target=".projects" class="next-page">Next &raquo;</button>',
-                page_number + 1
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?page_number=%s&project_type=%s" hx-target=".projects" class="next-page">Next &raquo;</button>',
+                page_number + 1,
+                coalesce(project_type, '')
               )
             else '' end,
             format(

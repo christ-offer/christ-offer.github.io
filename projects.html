@@ -196,7 +196,7 @@
       <div class="filter-container">
         <button
           class="all-projects-filter"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx"
           hx-target="#projects"
           hx-swap="innerHTML"
         >
@@ -204,7 +204,7 @@
         </button>
         <button
           class="work-projects-filter"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_work_projects"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?project_type=work"
           hx-target="#projects"
           hx-swap="innerHTML"
         >
@@ -212,7 +212,7 @@
         </button>
         <button
           class="personal-projects-filter"
-          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_personal_projects"
+          hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_projects_htmx?project_type=personal"
           hx-target="#projects"
           hx-swap="innerHTML"
         >
