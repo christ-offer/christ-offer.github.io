@@ -257,6 +257,26 @@ body {
 }
 
 .pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
   text-align: center;
   color: var(--text-light-primary);
+
+  button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--primary);
+    font-size: 1.25rem;
+
+    &:only-of-type {
+      grid-column: 1 / -1;
+    }
+  }
+
+  span {
+    color: gray;
+    grid-column: 1 / -1;
+  }
 }
