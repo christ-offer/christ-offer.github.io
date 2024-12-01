@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/sitemap?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY
