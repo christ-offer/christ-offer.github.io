@@ -20,7 +20,6 @@
       property="og:image"
       content="https://christ-offer.github.io/assets/images/meta_image_blog.png"
     />
-    <title>Spy on my thoughts</title>
     <script src="https://unpkg.com/htmx.org"></script>
     <script
       type="module"
@@ -45,6 +44,10 @@
     <script>
       const urlParams = new URLSearchParams(window.location.search);
       const title = urlParams.get("title");
+      const titleWithSpaces = title.replace(/-/g, " ");
+      document.addEventListener("DOMContentLoaded", function () {
+        document.title = titleWithSpaces;
+      });
     </script>
   </head>
   <body
