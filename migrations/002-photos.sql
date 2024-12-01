@@ -98,13 +98,13 @@ begin
             '<div class="pagination" id="pagination" hx-swap-oob="true">',
             case when page_number > 1 then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos_htmx?page_number=%s" hx-target=".gallery" class="prev-page">&laquo; Previous</button>',
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos_htmx?page_number=%s" hx-push-url="/photos.html?page_number=%s" hx-target=".gallery" class="prev-page">&laquo; Previous</button>',
                 page_number - 1
               )
             else '' end,
             case when page_number < total_pages then
               format(
-                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos_htmx?page_number=%s" hx-target=".gallery" class="next-page">Next &raquo;</button>',
+                '<button hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos_htmx?page_number=%s" hx-push-url="/photos.html?page_number=%s" hx-target=".gallery" class="next-page">Next &raquo;</button>',
                 page_number + 1
               )
             else '' end,

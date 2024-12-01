@@ -25,6 +25,13 @@
         ]
       }
     </script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      let page_number = urlParams.get("page_number");
+      if (page_number === null) {
+        page_number = 1;
+      }
+    </script>
   </head>
   <body
     hx-headers='{"Accept": "text/html", "apiKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN1ZGZya3dmbml3dmx0a2hvY3dnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzAyMjU2MjYsImV4cCI6MjA0NTgwMTYyNn0.F8eR45gCjvOynJnvyl3n5Pm8BuUpIfDF-HnNutgrUTY"}'
@@ -200,6 +207,7 @@
       <div
         class="gallery"
         hx-get="https://sudfrkwfniwvltkhocwg.supabase.co/rest/v1/rpc/get_photos_htmx"
+        hx-vals="js:{page_number: page_number}"
         hx-swap="innerHTML"
         hx-trigger="load"
       >

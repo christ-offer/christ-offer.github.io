@@ -6,7 +6,7 @@ create table if not exists public.posts (
   summary text,
   reading_time integer,
   body text not null,
-  post_url text,
+  post_url text not null unique,
   created_at timestamptz not null default now()
 );
 
