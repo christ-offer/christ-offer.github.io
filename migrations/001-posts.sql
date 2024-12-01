@@ -86,13 +86,17 @@ create or replace function public.html_post(public.posts) returns text as $$
         </div>
         <small>Posted: %5$s</small>
       </article>
+      <meta name="description" content="%6$s" id="description" hx-swap-oob="true">
+      <meta property="og:title" content="%2$s" id="og-title" hx-swap-oob="true">
+      <meta property="og:description" content="%6$s" id="og-description" hx-swap-oob="true">
     </div>
     $html$,
     $1.id,
     public.sanitize_html($1.title),
     $1.body,
     public.sanitize_html($1.post_url),
-    to_char($1.created_at, 'Month DD, YYYY')
+    to_char($1.created_at, 'Month DD, YYYY'),
+    public.sanitize_html($1.summary)
   );
 $$ language sql stable;
 
