@@ -203,6 +203,17 @@ small {
   letter-spacing: 0.02em;
 }
 
+a text tspan {
+  fill: var(--primary-400);
+  transition: fill 0.2s;
+}
+a:hover text:hover tspan:hover {
+  fill: var(--primary-300);
+}
+tspan.active {
+  fill: var(--primary-100);
+}
+
 body {
   display: grid;
   grid-template-columns: minmax(2rem, 1fr) minmax(340px, 60rem) minmax(
